@@ -16,7 +16,7 @@ export default function Navbar() {
                         className="menu menu-sm dropdown-content bg-secondary rounded-box z-10 mt-3 w-52 p-2 shadow">
                         <li><a href='#home'>Inicio</a></li>
                         <li><a href='#about'>Sobre Mí</a></li>
-                        <li><a href='/#'>Mis Skills</a></li>
+                        <li><a href='#skills'>Mis Skills</a></li>
                         <li><a href='/#'>Proyectos</a></li>
                         <li><a href='/#'>Contacto</a></li>
                     </ul>
@@ -41,7 +41,7 @@ export default function Navbar() {
                     Darkmode
                     <li><a href='#home'>Inicio</a></li>
                     <li><a href='#about'>Sobre Mí</a></li>
-                    <li><a href='/#'>Mis Skills</a></li>
+                    <li><a href='#skills'>Mis Skills</a></li>
                     <li><a href='/#'>Mis Proyectos</a></li>
                     <li><a href='/#'>Contáctame</a></li>
                 </ul>

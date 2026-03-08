@@ -2,7 +2,7 @@ export const tecnologiesData = [
     {
         id: 1,
         name: 'Frontend',
-        color: 'red',
+        color: 'primary',
         content: [
             {
                 id: 1,
@@ -39,7 +39,7 @@ export const tecnologiesData = [
     {
         id: 2,
         name: 'Backend',
-        color: 'blue',
+        color: 'secondary',
         content: [
             {
                 id: 1,
@@ -76,7 +76,7 @@ export const tecnologiesData = [
     {
         id: 3,
         name: 'Tools',
-        color: 'yellow',
+        color: 'accent',
         content: [
             {
                 id: 1,

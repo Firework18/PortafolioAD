@@ -2,8 +2,13 @@ import React from 'react'
 import Card3dHover from '../../../shared/ui/card3d/Card3dAbout'
 import { aboutData } from '../../../data/AboutData'
 import { tecnologiesData } from '../../../data/TecnologiesData'
+import Badge from '../../../shared/ui/badges/Badge'
+import CardTecnology from '../components/cards/CardTecnology'
 
 export default function Home() {
+
+    console.log(tecnologiesData)
+
     return (
         <div>
 
@@ -72,8 +77,12 @@ export default function Home() {
             </section>
 
             {/* Section My Skills */}
-            <section className='bg-base-300 py-24 scroll-mt-20'>
-                <div className='container mx-auto flex flex-row items-center justify-center text-center px-6'>
+            <section
+                className='bg-neutral py-24 '
+            >
+                <div
+                    id='skills'
+                    className='container mx-auto flex flex-row items-center justify-center text-center px-6'>
                     <div className='flex flex-col justify-center text-center gap-10 max-w-5xl'>
 
                         <div>
@@ -86,9 +95,10 @@ export default function Home() {
                                 Technologies and tools I use to build modern web applications.
                             </p>
                         </div>
-                        <div className='grid grid-cols-1 md:grid-cols-3 gap-12 mt-12 justify-items-center'>
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-2 mt-12 justify-items-center'>
                             {tecnologiesData.map(tec =>
-                                <h3 className='font-extrabold'>{tec.name}</h3>
+                                <CardTecnology tec={tec} key={tec.id} />
+
                             )}
                         </div>
                     </div>
