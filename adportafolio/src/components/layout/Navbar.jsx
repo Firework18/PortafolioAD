@@ -17,7 +17,7 @@ export default function Navbar() {
                         <li><a href='#home'>Inicio</a></li>
                         <li><a href='#about'>Sobre Mí</a></li>
                         <li><a href='#skills'>Mis Skills</a></li>
-                        <li><a href='/#'>Proyectos</a></li>
+                        <li><a href='/#proyects'>Proyectos</a></li>
                         <li><a href='/#'>Contacto</a></li>
                     </ul>
                 </div>
@@ -42,7 +42,7 @@ export default function Navbar() {
                     <li><a href='#home'>Inicio</a></li>
                     <li><a href='#about'>Sobre Mí</a></li>
                     <li><a href='#skills'>Mis Skills</a></li>
-                    <li><a href='/#'>Mis Proyectos</a></li>
+                    <li><a href='/#proyects'>Mis Proyectos</a></li>
                     <li><a href='/#'>Contáctame</a></li>
                 </ul>
             </div>

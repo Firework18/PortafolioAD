@@ -4,6 +4,7 @@ import { aboutData } from '../../../data/AboutData'
 import { tecnologiesData } from '../../../data/TecnologiesData'
 import Badge from '../../../shared/ui/badges/Badge'
 import CardTecnology from '../components/cards/CardTecnology'
+import ProyectCard3d from '../../projects/components/cards/ProyectCard3d'
 
 export default function Home() {
 
@@ -15,7 +16,7 @@ export default function Home() {
             {/* Section Home */}
             <section
                 id='home'
-                className='min-h-screen flex flex-row items-center justify-center gap-20 px-6 container mx-auto scroll-mt-20'>
+                className='min-h-screen flex flex-row items-center justify-center gap-20 px-6 container mx-auto scroll-mt-35'>
                 <div className='flex flex-col items-start justify-center'>
                     <div>
                         <p className='font-bold text-3xl'>Hi there everyone! I am</p>
@@ -43,10 +44,10 @@ export default function Home() {
 
 
             {/* Section About */}
-            <section className='bg-base-300 py-24'>
+            <section className='bg-base-200 py-24 min-h-screen'>
                 <div
                     id='about'
-                    className='container mx-auto flex flex-row items-center justify-center text-center px-6 scroll-mt-20'>
+                    className='container mx-auto flex flex-row items-center justify-center text-center px-6 scroll-mt-35'>
                     <div className='flex flex-col justify-center text-center gap-10 max-w-5xl'>
 
                         <div>
@@ -78,11 +79,11 @@ export default function Home() {
 
             {/* Section My Skills */}
             <section
-                className='bg-neutral py-24 '
+                className='bg-base-300 py-24 min-h-screen'
             >
                 <div
                     id='skills'
-                    className='container mx-auto flex flex-row items-center justify-center text-center px-6'>
+                    className='container mx-auto flex flex-row items-center justify-center text-center px-6 scroll-mt-35'>
                     <div className='flex flex-col justify-center text-center gap-10 max-w-5xl'>
 
                         <div>
@@ -98,6 +99,35 @@ export default function Home() {
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-2 mt-12 justify-items-center'>
                             {tecnologiesData.map(tec =>
                                 <CardTecnology tec={tec} key={tec.id} />
+
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section My Proyects */}
+            <section
+                className='bg-neutral py-24 min-h-screen'
+            >
+                <div
+                    id='proyects'
+                    className='container mx-auto flex flex-row items-center justify-center text-center px-6 scroll-mt-35'>
+                    <div className='flex flex-col justify-center text-center gap-10 max-w-5xl'>
+
+                        <div>
+                            <p className='font-bold text-3xl badge badge-accent p-5 text-white'>My Proyects</p>
+                            <h2 className='text-7xl font-extrabold mt-4'>What I do </h2>
+                        </div>
+
+                        <div className='text-lg text-gray-400 inline-flex gap-2 mt-2 self-center'>
+                            <p>
+                                Proyects what i created.
+                            </p>
+                        </div>
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-2 mt-12 justify-items-center'>
+                            {tecnologiesData.map(tec =>
+                                <ProyectCard3d tec={tec} key={tec.id} />
 
                             )}
                         </div>
