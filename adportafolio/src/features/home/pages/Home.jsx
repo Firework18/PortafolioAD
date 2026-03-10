@@ -48,13 +48,13 @@ export default function Home() {
                 <div
                     id='about'
                     className='container mx-auto flex flex-row items-center justify-center text-center px-6 scroll-mt-35'>
-                    <div className='flex flex-col justify-center text-center gap-10 max-w-5xl'>
-
+                    <div className='flex flex-col justify-center text-center gap-2 max-w-5xl'>
+                        {/* Header */}
                         <div>
                             <p className='font-bold text-3xl badge badge-secondary p-5 text-white'>About me</p>
                             <h2 className='text-7xl font-extrabold mt-4'>Who I am</h2>
                         </div>
-
+                        {/* Contenido Texto */}
                         <div className='text-lg text-gray-400 inline-flex gap-2 mt-2'>
                             <p>
                                 I am a passionate developer with experience in both frontend and backend technologies. I love creating innovative solutions and constantly strive to improve my skills.
@@ -62,7 +62,8 @@ export default function Home() {
 
                             </p>
                         </div>
-                        <div className='grid grid-cols-1 md:grid-cols-3 gap-12 mt-12 justify-items-center'>
+                        {/* Card 3d */}
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-12 mt-5 justify-items-center'>
                             {aboutData.map(data =>
                                 <Card3dHover
                                     title={data.title}
@@ -113,19 +114,19 @@ export default function Home() {
                 <div
                     id='proyects'
                     className='container mx-auto flex flex-row items-center justify-center text-center px-6 scroll-mt-35'>
-                    <div className='flex flex-col justify-center text-center gap-10 max-w-5xl'>
+                    <div className='flex flex-col justify-center text-center gap-2 max-w-5xl'>
 
                         <div>
                             <p className='font-bold text-3xl badge badge-accent p-5 text-white'>My Proyects</p>
                             <h2 className='text-7xl font-extrabold mt-4'>What I do </h2>
                         </div>
 
-                        <div className='text-lg text-gray-400 inline-flex gap-2 mt-2 self-center'>
+                        <div className='text-lg text-gray-400 inline-flex gap-2 self-center'>
                             <p>
                                 Proyects what i created.
                             </p>
                         </div>
-                        <div className='grid grid-cols-1 md:grid-cols-3 gap-2 mt-12 justify-items-center'>
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5 mt-12 justify-items-center'>
                             {tecnologiesData.map(tec =>
                                 <ProyectCard3d tec={tec} key={tec.id} />
 
