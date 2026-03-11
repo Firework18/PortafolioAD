@@ -18,11 +18,17 @@ export default function Home() {
             {/* Section Home */}
             <section
                 id='home'
-                className='min-h-screen flex flex-row items-center justify-center gap-20 px-6 container mx-auto scroll-mt-35'>
+                className='min-h-screen  flex flex-col md:flex-row items-center justify-center gap-20 px-6 container mx-auto scroll-mt-35'>
+                {/* Contenido Izquierda */}
                 <div className='flex flex-col items-start justify-center'>
                     <div>
                         <p className='font-bold text-3xl'>Hi there everyone! I am</p>
-                        <h1 className='text-8xl font-extrabold leading-tight'>Alessandro Del Carpio</h1>
+                        <h1
+                            className='text-5xl mt-20 md:mt-0 md:text-6xl lg:text-8xl font-extrabold leading-tight
+                            bg-linear-to-br from-cyan-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text
+                            '>
+                            Alessandro Del Carpio
+                        </h1>
 
                         <div className='text-xl text-gray-500 uppercase font-bold flex gap-3 mt-3'>
                             <div className='badge badge-soft badge-success'>Student</div>
@@ -38,9 +44,9 @@ export default function Home() {
 
                     <button className='btn btn-secondary mt-6 font-bold'>Download My CV</button>
                 </div>
-
+                {/* Contenido Derecha */}
                 <div className='shadow-2xl rounded-2xl shadow-accent-content'>
-                    <img src="/img/imagen-inicio-prueba.png" className="h-96 rounded-2xl object-cover" alt="Logo" />
+                    <img src="/img/imagen-inicio-prueba.png" className="h-96 rounded-2xl object-cover" alt="Imagen de prueba" />
                 </div>
             </section>
 

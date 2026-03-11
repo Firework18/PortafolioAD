@@ -26,7 +26,7 @@ export default function Navbar() {
             <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
                 <a href="/" className="btn btn-ghost text-xl">
                     {/* <img src="/img/logo-pokemon.png" className="h-10" alt="Logo" /> */}
-                    Ale
+                    Firework
                 </a>
             </div>
 
