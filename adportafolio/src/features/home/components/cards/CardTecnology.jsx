@@ -16,23 +16,27 @@ export default function CardTecnology({ tec }) {
                 />
             </div>
 
-            <div className='grid grid-cols-3 gap-5 p-8 rounded-2xl border mt-2 bg-base-100'>
-                {content.map((tecno) => (
-                    <div
-                        key={tecno.name}
-                        className='flex flex-col items-center justify-center gap-2 bg-gray-800 rounded-2xl w-20 h-20 hover:scale-105 hover:bg-gray-700 transition-all duration-300'
-                    >
-                        <img
-                            src={tecno.img}
-                            alt={tecno.name}
-                            className='w-10 h-10 object-contain'
-                        />
+            {/* Contenido */}
+            <div className="p-px rounded-2xl bg-linear-to-r from-cyan-500 via-indigo-500 to-purple-500 mt-2">
 
-                        <p className='text-xs text-center'>
-                            {tecno.name}
-                        </p>
-                    </div>
-                ))}
+                <div className='grid grid-cols-3 gap-5 p-8 rounded-2xl bg-base-100'>
+                    {content.map((tecno) => (
+                        <div
+                            key={tecno.name}
+                            className='flex flex-col items-center justify-center bg-gray-800 rounded-2xl w-20 hover:scale-105 hover:bg-gray-700 transition-all duration-300 p-1'
+                        >
+                            <img
+                                src={tecno.img}
+                                alt={tecno.name}
+                                className='w-20 object-contain p-1'
+                            />
+
+                            <p className='text-xs text-center font-bold'>
+                                {tecno.name}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

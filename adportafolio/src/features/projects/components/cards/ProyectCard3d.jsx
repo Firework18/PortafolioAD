@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
+import Modal from '../../../../components/Modal/Modal'
+import useModal from '../../../../hooks/useModal'
 
 export default function ProyectCard3d() {
 
-    const [contador, setContador] = useState(0)
 
-    const handleClick = () => {
-        setContador(prev => prev + 1)
-    }
-
-    console.log(contador)
+    const { openModal } = useModal()
 
     return (
         <div>
@@ -46,6 +43,10 @@ export default function ProyectCard3d() {
                             <div className='badge badge-outline badge-primary'>Laravel</div>
                             <div className='badge badge-outline badge-secondary'>MySql</div>
                         </div>
+
+                        <button className='btn btn-accent' onClick={openModal}>
+                            Abrir Modal
+                        </button>
 
                     </div>
 
