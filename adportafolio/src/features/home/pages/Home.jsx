@@ -5,6 +5,8 @@ import { tecnologiesData } from '../../../data/TecnologiesData'
 import Badge from '../../../shared/ui/badges/Badge'
 import CardTecnology from '../components/cards/CardTecnology'
 import ProyectCard3d from '../../projects/components/cards/ProyectCard3d'
+import { projects } from '../../../data/ProjectsData'
+import Carousel from '../../../components/carousel/Carousel'
 
 export default function Home() {
 
@@ -127,11 +129,15 @@ export default function Home() {
                             </p>
                         </div>
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 mt-12 justify-items-center'>
-                            {tecnologiesData.map(tec =>
-                                <ProyectCard3d tec={tec} key={tec.id} />
+                            {projects.map(project =>
+                                <ProyectCard3d project={project} key={project.id} />
 
                             )}
                         </div>
+                        {/* <div>
+                            Prueba del carrusel
+                            <Carousel></Carousel>
+                        </div> */}
                     </div>
                 </div>
             </section>

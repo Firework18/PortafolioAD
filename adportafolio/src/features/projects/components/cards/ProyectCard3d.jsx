@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import Modal from '../../../../components/Modal/Modal'
 import useModal from '../../../../hooks/useModal'
 
-export default function ProyectCard3d() {
+export default function ProyectCard3d({ project }) {
 
+    //Manejo del Modal
+    const { handleClickModal } = useModal()
 
-    const { openModal } = useModal()
+    const { id, name, description, img, tecnologies } = project
 
     return (
         <div>
@@ -26,27 +28,30 @@ export default function ProyectCard3d() {
 
                     {/* Contenido */}
                     <div className='flex flex-col gap-5'>
+                        {/* Imagen */}
+                        <img
+                            src={img} alt="Imagen nombre"
+                            className='rounded-2xl'
+                            onClick={() => handleClickModal('ShowImage', project)}
 
-                        <img src="/img/prueba.jpg" alt="Imagen nombre" className='rounded-2xl' />
+                        />
 
                         <div className='text-left flex flex-col gap-3 text-gray-400'>
-                            <div className='font-extrabold uppercase'>Proyecto Tec</div>
+                            <div className='font-extrabold uppercase'>{name}</div>
                             <p className='text-sm'>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                {description}
                             </p>
 
                         </div>
 
                         {/* Tecnologías */}
                         <div className='flex flex-row gap-3'>
-                            <div className='badge badge-outline badge-accent'>React</div>
-                            <div className='badge badge-outline badge-primary'>Laravel</div>
-                            <div className='badge badge-outline badge-secondary'>MySql</div>
-                        </div>
+                            {tecnologies.map(tec =>
+                                <div className='badge badge-outline badge-accent' key={tec.name} >{tec.name}</div>
+                            )}
 
-                        <button className='btn btn-accent' onClick={openModal}>
-                            Abrir Modal
-                        </button>
+
+                        </div>
 
                     </div>
 

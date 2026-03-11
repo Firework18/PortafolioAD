@@ -6,6 +6,16 @@ const ModalContextProvider = ({ children }) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
+    const [typeModal, setTypeModal] = useState(null)
+
+    const [dataSelected, setDataSelected] = useState({})
+
+    const handleClickModal = (type, data) => {
+        setIsOpen(!isOpen)
+        setTypeModal(type)
+        setDataSelected(data)
+    }
+
     const openModal = () => setIsOpen(true)
     const closeModal = () => setIsOpen(false)
 
@@ -14,7 +24,11 @@ const ModalContextProvider = ({ children }) => {
             value={{
                 isOpen,
                 openModal,
-                closeModal
+                closeModal,
+                //Nuevo Manejo
+                handleClickModal,
+                dataSelected,
+                typeModal,
             }}>
             {children}
         </ModalContext.Provider>
