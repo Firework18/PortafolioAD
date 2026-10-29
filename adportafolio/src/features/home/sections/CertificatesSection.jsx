@@ -1,9 +1,9 @@
-import React from 'react'
-import { certificatesData } from '../../../data/CertificatesData'
+import React from "react";
+import { certificatesData } from "../../../data/CertificatesData";
 
 export default function CertificatesSection() {
   return (
-    <section id="certificates" className="bg-base-200/50 py-24 scroll-mt-28">
+    <section id="certificates" className="py-24 scroll-mt-28">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center">
           <span className="badge badge-secondary px-4 py-2 font-khand font-bold tracking-wider text-sm uppercase">
@@ -50,7 +50,7 @@ export default function CertificatesSection() {
                 </div>
               </div>
 
-              {cert.url && cert.url !== '#' && (
+              {cert.url && cert.url !== "#" && (
                 <a
                   href={cert.url}
                   target="_blank"
@@ -65,6 +65,5 @@ export default function CertificatesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -1,31 +1,31 @@
-import React, { useState } from 'react'
-import Button from '../../../shared/ui/buttons/Button'
+import React, { useState } from "react";
+import Button from "../../../shared/ui/buttons/Button";
 
 export default function ContactSection() {
-  const [sent, setSent] = useState(false)
+  const [sent, setSent] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setSent(true)
-    setTimeout(() => setSent(false), 5000)
-    setFormData({ name: '', email: '', subject: '', message: '' })
-  }
+    e.preventDefault();
+    setSent(true);
+    setTimeout(() => setSent(false), 5000);
+    setFormData({ name: "", email: "", subject: "", message: "" });
+  };
 
   return (
-    <section id="contact" className="bg-base-200 py-24 min-h-screen scroll-mt-28">
+    <section id="contact" className="py-24 min-h-screen scroll-mt-28">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center">
           <span className="badge badge-secondary px-4 py-2 font-khand font-bold tracking-wider text-sm uppercase">
@@ -35,7 +35,8 @@ export default function ContactSection() {
             ¿Trabajamos Juntos?
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mt-4 font-khand">
-            ¿Tienes un proyecto en mente o una propuesta laboral? Escríbeme y responderé a la brevedad.
+            ¿Tienes un proyecto en mente o una propuesta laboral? Escríbeme y
+            responderé a la brevedad.
           </p>
         </div>
 
@@ -47,14 +48,18 @@ export default function ContactSection() {
                 <i className="bi bi-envelope-fill"></i>
               </div>
               <h3 className="font-bold text-white font-khand text-lg">Email</h3>
-              <p className="text-gray-400 text-sm font-khand">alessandro@example.com</p>
+              <p className="text-gray-400 text-sm font-khand">
+                alessandro@example.com
+              </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-base-100/70 border border-secondary/20">
               <div className="text-secondary text-2xl mb-2">
                 <i className="bi bi-geo-alt-fill"></i>
               </div>
-              <h3 className="font-bold text-white font-khand text-lg">Ubicación</h3>
+              <h3 className="font-bold text-white font-khand text-lg">
+                Ubicación
+              </h3>
               <p className="text-gray-400 text-sm font-khand">Perú</p>
             </div>
 
@@ -95,10 +100,16 @@ export default function ContactSection() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 font-khand">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-4 font-khand"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-1"
+                  >
                     Nombre
                   </label>
                   <input
@@ -113,7 +124,10 @@ export default function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-1"
+                  >
                     Correo Electrónico
                   </label>
                   <input
@@ -130,7 +144,10 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-1">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-1"
+                >
                   Asunto
                 </label>
                 <input
@@ -146,7 +163,10 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-1">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold uppercase tracking-wider text-gray-300 mb-1"
+                >
                   Mensaje
                 </label>
                 <textarea
@@ -177,6 +197,5 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

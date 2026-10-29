@@ -1,9 +1,9 @@
-import React from 'react'
-import { studiesData } from '../../../data/StudiesData'
+import React from "react";
+import { studiesData } from "../../../data/StudiesData";
 
 export default function StudiesSection() {
   return (
-    <section id="studies" className="bg-base-300/40 py-24 scroll-mt-28">
+    <section id="studies" className="py-24 scroll-mt-28">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center">
           <span className="badge badge-primary px-4 py-2 font-khand font-bold tracking-wider text-sm uppercase">
@@ -51,6 +51,5 @@ export default function StudiesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
