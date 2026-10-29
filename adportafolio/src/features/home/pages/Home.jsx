@@ -3,6 +3,7 @@ import Card3dHover from '../../../shared/ui/card3d/Card3dAbout'
 import { aboutData } from '../../../data/AboutData'
 import { tecnologiesData } from '../../../data/TecnologiesData'
 import Badge from '../../../shared/ui/badges/Badge'
+import Button from '../../../shared/ui/buttons/Button'
 import CardTecnology from '../components/cards/CardTecnology'
 import ProyectCard3d from '../../projects/components/cards/ProyectCard3d'
 import { projects } from '../../../data/ProjectsData'
@@ -42,7 +43,9 @@ export default function Home() {
                         <div className='badge badge-outline badge-info uppercase font-extrabold'>Backend Development</div>.
                     </div>
 
-                    <button className='btn btn-secondary mt-6 font-bold'>Download My CV</button>
+                    <Button variant="secondary" size="lg" icon="bi-download" className="mt-6">
+                        Download My CV
+                    </Button>
                 </div>
                 {/* Contenido Derecha */}
                 <div className='shadow-2xl rounded-2xl shadow-accent-content'>

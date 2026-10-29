@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Modal from '../../../../components/Modal/Modal'
 import useModal from '../../../../hooks/useModal'
 
@@ -7,7 +7,7 @@ export default function ProyectCard3d({ project }) {
     //Manejo del Modal
     const { handleClickModal } = useModal()
 
-    const { id, name, description, img, tecnologies } = project
+    const { name, description, img, tecnologies } = project
 
     return (
         <div>
