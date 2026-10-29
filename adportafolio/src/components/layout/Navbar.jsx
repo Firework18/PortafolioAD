@@ -3,7 +3,7 @@ import Button from '../../shared/ui/buttons/Button'
 
 export default function Navbar() {
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-4xl">
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
       <div className="navbar bg-base-300/85 backdrop-blur-md border border-primary/25 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5),0_0_15px_rgba(0,240,255,0.08)] px-3 lg:px-6 py-1.5 justify-between">
         <div className="navbar-start w-auto">
           <a
@@ -17,17 +17,19 @@ export default function Navbar() {
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal gap-1 font-khand font-semibold uppercase tracking-wider text-base text-gray-300">
+          <ul className="menu menu-horizontal gap-1 font-khand font-semibold uppercase tracking-wider text-sm text-gray-300">
             <li><a href="#home" className="hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">Inicio</a></li>
             <li><a href="#about" className="hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">Sobre Mí</a></li>
-            <li><a href="#skills" className="hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">Mis Skills</a></li>
+            <li><a href="#studies" className="hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">Estudios</a></li>
+            <li><a href="#certificates" className="hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">Certificados</a></li>
+            <li><a href="#skills" className="hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">Skills</a></li>
             <li><a href="#proyects" className="hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">Proyectos</a></li>
           </ul>
         </div>
 
         <div className="navbar-end w-auto flex items-center gap-2">
           <Button
-            href="#about"
+            href="#contact"
             variant="outline"
             size="sm"
             className="hidden lg:inline-flex"
@@ -45,8 +47,11 @@ export default function Navbar() {
             >
               <li><a href="#home">Inicio</a></li>
               <li><a href="#about">Sobre Mí</a></li>
+              <li><a href="#studies">Estudios</a></li>
+              <li><a href="#certificates">Certificados</a></li>
               <li><a href="#skills">Mis Skills</a></li>
               <li><a href="#proyects">Proyectos</a></li>
+              <li><a href="#contact">Contacto</a></li>
             </ul>
           </div>
         </div>
