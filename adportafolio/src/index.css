@@ -1,7 +1,9 @@
+/* Fuentes: Excon 500/600/700 para títulos, Ranade 300/500 para texto */
+@import url("https://api.fontshare.com/v2/css?f[]=excon@500,600,700&f[]=ranade@300,500&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -9,75 +11,88 @@
   themes: dark --default;
 }
 
+/* ============================================================
+   PALETA BASE (3 colores)
+   - Celeste neón: acción, énfasis, enlaces activos
+   - Carbón:       fondos y superficies
+   - Arena:        texto y acentos suaves
+   ============================================================ */
 @theme {
-  --font-sans: "Khand", sans-serif;
-  --font-khand: "Khand", sans-serif;
-  --font-array: "Array", sans-serif;
-  --font-heading: "Array", sans-serif;
+  --font-sans: "Ranade", sans-serif;
+  --font-display: "Excon", sans-serif;
+  --font-heading: "Excon", sans-serif;
 
-  --color-cyber-black: #090b10;
-  --color-cyber-dark: #0e111a;
-  --color-cyber-surface: #141724;
-  --color-cyber-card: #1a1e2f;
-  --color-cyber-border: #292f45;
+  --color-celeste: #22d3ee;
+  --color-celeste-oscuro: #0e7490;
 
-  --color-neon-cyan: #38b6d8;
-  --color-neon-pink: #db5a8f;
-  --color-neon-purple: #8f74c7;
-  --color-neon-yellow: #e0b354;
-  --color-neon-green: #38c18f;
+  --color-carbon: #161616;
+  --color-carbon-claro: #1f1f1f;
+  --color-carbon-medio: #2b2b2b;
+  --color-carbon-borde: #3a3a3a;
+
+  --color-arena: #f3ede2;
+  --color-arena-oscuro: #e8dcc4;
+  --color-arena-muted: #a39e93;
 }
 
-:root, [data-theme="dark"] {
-  --color-base-100: #0e111a;
-  --color-base-200: #141724;
-  --color-base-300: #1a1e2f;
-  --color-base-content: #e2e8f0;
+:root,
+[data-theme="dark"] {
+  --color-base-100: #161616;
+  --color-base-200: #1f1f1f;
+  --color-base-300: #2b2b2b;
+  --color-base-content: #f3ede2;
 
-  --color-primary: #38b6d8;
+  --color-primary: #22d3ee;
   --color-primary-content: #041217;
 
-  --color-secondary: #db5a8f;
-  --color-secondary-content: #ffffff;
+  --color-secondary: #0e7490;
+  --color-secondary-content: #f3ede2;
 
-  --color-accent: #e0b354;
-  --color-accent-content: #120e03;
+  --color-accent: #e8dcc4;
+  --color-accent-content: #161616;
 
-  --color-neutral: #1e2336;
-  --color-neutral-content: #cbd5e1;
+  --color-neutral: #2b2b2b;
+  --color-neutral-content: #e8dcc4;
 
-  --color-info: #48a5c4;
-  --color-info-content: #041014;
+  --color-info: #a39e93;
+  --color-info-content: #161616;
 
-  --color-success: #38c18f;
-  --color-success-content: #03140d;
+  --color-success: #7a8b6f;
+  --color-success-content: #0f140d;
 
-  --color-warning: #e59b3c;
-  --color-warning-content: #140c03;
+  --color-warning: #e8dcc4;
+  --color-warning-content: #161616;
 
-  --color-error: #d95368;
+  --color-error: #d0312d;
   --color-error-content: #ffffff;
 }
 
-body {
-  font-family: var(--font-khand), sans-serif;
-  background-color: var(--color-base-100);
-  color: var(--color-base-content);
-  letter-spacing: 0.02em;
-}
+/* Estilos base dentro de @layer base para que las utilidades
+   de Tailwind (font-bold, font-medium, etc.) puedan sobrescribirlos */
+@layer base {
+  body {
+    font-family: var(--font-sans), sans-serif;
+    font-weight: 300;
+    background-color: var(--color-carbon);
+    color: var(--color-arena);
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+  }
 
-h1, h2, h3, .font-array {
-  font-family: var(--font-array), sans-serif;
-  letter-spacing: 0.04em;
-}
-
-.font-khand {
-  font-family: var(--font-khand), sans-serif;
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.15;
+  }
 }
 
 ::selection {
-  background-color: var(--color-secondary);
-  color: #ffffff;
+  background-color: var(--color-celeste);
+  color: #041217;
 }
 
 @theme inline {
@@ -116,39 +131,86 @@ h1, h2, h3, .font-array {
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+  @keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  @keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+    }
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);
+    }
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);
+    }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+    }
+  }
 }
 
+/* shadcn/ui: mapeado a la misma paleta */
 :root {
-  --background: oklch(0.14 0.015 260);
-  --foreground: oklch(0.92 0.01 260);
-  --card: oklch(0.17 0.015 260);
-  --card-foreground: oklch(0.92 0.01 260);
-  --popover: oklch(0.17 0.015 260);
-  --popover-foreground: oklch(0.92 0.01 260);
-  --primary: oklch(0.72 0.10 205);
-  --primary-foreground: oklch(0.12 0.02 260);
-  --secondary: oklch(0.64 0.11 345);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.22 0.015 260);
-  --muted-foreground: oklch(0.68 0.02 260);
-  --accent: oklch(0.74 0.10 85);
-  --accent-foreground: oklch(0.12 0.02 260);
-  --destructive: oklch(0.55 0.15 25);
-  --border: oklch(0.3 0.015 260 / 25%);
-  --input: oklch(0.3 0.015 260 / 30%);
-  --ring: oklch(0.72 0.10 205);
-  --chart-1: oklch(0.72 0.10 205);
-  --chart-2: oklch(0.64 0.11 345);
-  --chart-3: oklch(0.74 0.10 85);
-  --chart-4: oklch(0.68 0.08 160);
-  --chart-5: oklch(0.62 0.09 290);
+  --background: #161616;
+  --foreground: #f3ede2;
+  --card: #1f1f1f;
+  --card-foreground: #f3ede2;
+  --popover: #1f1f1f;
+  --popover-foreground: #f3ede2;
+  --primary: #22d3ee;
+  --primary-foreground: #041217;
+  --secondary: #2b2b2b;
+  --secondary-foreground: #f3ede2;
+  --muted: #242424;
+  --muted-foreground: #a39e93;
+  --accent: #e8dcc4;
+  --accent-foreground: #161616;
+  --destructive: #d0312d;
+  --border: #3a3a3a;
+  --input: #3a3a3a;
+  --ring: #22d3ee;
+  --chart-1: #22d3ee;
+  --chart-2: #e8dcc4;
+  --chart-3: #0e7490;
+  --chart-4: #a39e93;
+  --chart-5: #5c5852;
   --radius: 0.625rem;
-  --sidebar: oklch(0.17 0.015 260);
-  --sidebar-foreground: oklch(0.92 0.01 260);
-  --sidebar-primary: oklch(0.72 0.10 205);
-  --sidebar-primary-foreground: oklch(0.12 0.02 260);
-  --sidebar-accent: oklch(0.22 0.015 260);
-  --sidebar-accent-foreground: oklch(0.92 0.01 260);
-  --sidebar-border: oklch(0.3 0.015 260 / 25%);
-  --sidebar-ring: oklch(0.72 0.10 205);
+  --sidebar: #1f1f1f;
+  --sidebar-foreground: #f3ede2;
+  --sidebar-primary: #22d3ee;
+  --sidebar-primary-foreground: #041217;
+  --sidebar-accent: #2b2b2b;
+  --sidebar-accent-foreground: #f3ede2;
+  --sidebar-border: #3a3a3a;
+  --sidebar-ring: #22d3ee;
+}
+
+@keyframes aurora-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.aurora-text-anim {
+  animation-name: aurora-shift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: background-position;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-text-anim {
+    animation: none;
+  }
 }
