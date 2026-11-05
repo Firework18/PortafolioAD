@@ -1,8 +1,9 @@
-import React from 'react'
-import Button from '../../../shared/ui/buttons/Button'
-import { AuroraText } from '@/components/ui/aurora-text'
-import { ShimmerButton } from '@/components/ui/shimmer-button'
-import FadeIn from '../../../shared/ui/motion/FadeIn'
+import React from "react";
+import Button from "../../../shared/ui/buttons/Button";
+import { AuroraText } from "@/components/ui/aurora-text";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import FadeIn from "../../../shared/ui/motion/FadeIn";
+import logoA from "../../../assets/logoA.svg";
 
 export default function HeroSection() {
   return (
@@ -12,13 +13,14 @@ export default function HeroSection() {
     >
       <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
           {/* Columna Izquierda: Información Principal */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <FadeIn delay={0.1}>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest bg-carbon-claro border border-celeste/30 text-celeste shadow-[0_0_12px_rgba(34,211,238,0.15)]">
-                <span className="w-2 h-2 rounded-full bg-esmeralda animate-ping" />
-                <span className="text-arena font-semibold">Alessandro Del Carpio</span>
+                <img src={logoA} alt="Logo A" className="w-4 h-4 object-contain filter invert" />
+                <span className="text-arena font-semibold">
+                  Buscando oportunidades en desarrollo de software{" "}
+                </span>
                 <span className="text-celeste/60">•</span>
                 <span className="text-esmeralda font-medium">Disponible</span>
               </div>
@@ -26,8 +28,10 @@ export default function HeroSection() {
 
             <FadeIn delay={0.2}>
               <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.08] tracking-tight text-arena">
-                Desarrollando soluciones{' '}
-                <AuroraText colors={['#22d3ee', '#818cf8', '#fb7185', '#22d3ee']}>
+                Desarrollando soluciones{" "}
+                <AuroraText
+                  colors={["#22d3ee", "#818cf8", "#fb7185", "#22d3ee"]}
+                >
                   en proyectos de software
                 </AuroraText>
               </h1>
@@ -42,22 +46,23 @@ export default function HeroSection() {
                 <span className="px-3 py-1 text-xs font-mono uppercase tracking-wider rounded-md bg-indigo-tech/15 text-indigo-tech border border-indigo-tech/35">
                   Ingeniería de Sistemas
                 </span>
-                <span className="px-3 py-1 text-xs font-mono uppercase tracking-wider rounded-md bg-ambar/15 text-ambar border border-ambar/35">
-                  Estudiante UCV
-                </span>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.4}>
               <p className="mt-6 text-base sm:text-lg text-arena-muted leading-relaxed font-sans max-w-2xl">
-                Enfocado en resolver problemas reales a través de software moderno y escalable.
-                Me interesa entender a fondo cada necesidad y convertirla en interfaces dinámicas,
-                arquitecturas backend sólidas y sistemas intuitivos pensados para crecer.
+                Enfocado en resolver problemas reales a través de software
+                moderno y escalable. Me interesa entender a fondo cada necesidad
+                y convertirla en interfaces dinámicas, arquitecturas backend
+                sólidas y sistemas intuitivos pensados para crecer.
               </p>
             </FadeIn>
 
             {/* Acciones principales */}
-            <FadeIn delay={0.5} className="mt-8 flex flex-wrap items-center gap-4">
+            <FadeIn
+              delay={0.5}
+              className="mt-8 flex flex-wrap items-center gap-4"
+            >
               <a href="/cv.pdf" download="CV_Alessandro_DelCarpio.pdf">
                 <ShimmerButton
                   shimmerColor="#22d3ee"
@@ -124,35 +129,46 @@ export default function HeroSection() {
                   {/* Bloque de código con contraste */}
                   <div className="mt-5 font-mono text-xs sm:text-sm leading-relaxed space-y-2">
                     <p className="text-arena-muted">
-                      <span className="text-indigo-tech font-semibold">const</span>{' '}
-                      <span className="text-celeste font-semibold">developer</span> = &#123;
+                      <span className="text-indigo-tech font-semibold">
+                        const
+                      </span>{" "}
+                      <span className="text-celeste font-semibold">
+                        developer
+                      </span>{" "}
+                      = &#123;
                     </p>
                     <p className="pl-4 text-arena">
-                      <span className="text-coral">nombre</span>:{' '}
-                      <span className="text-ambar">'Alessandro Del Carpio'</span>,
+                      <span className="text-coral">nombre</span>:{" "}
+                      <span className="text-ambar">
+                        'Alessandro Del Carpio'
+                      </span>
+                      ,
                     </p>
                     <p className="pl-4 text-arena">
-                      <span className="text-coral">rol</span>:{' '}
-                      <span className="text-ambar">'Full Stack Developer'</span>,
+                      <span className="text-coral">rol</span>:{" "}
+                      <span className="text-ambar">'Full Stack Developer'</span>
+                      ,
                     </p>
                     <p className="pl-4 text-arena">
-                      <span className="text-coral">frontend</span>:{' '}
+                      <span className="text-coral">frontend</span>:{" "}
                       <span className="text-arena-muted">[</span>
-                      <span className="text-celeste">'React'</span>,{' '}
+                      <span className="text-celeste">'React'</span>,{" "}
                       <span className="text-celeste">'Tailwind CSS'</span>
                       <span className="text-arena-muted">]</span>,
                     </p>
                     <p className="pl-4 text-arena">
-                      <span className="text-coral">backend</span>:{' '}
+                      <span className="text-coral">backend</span>:{" "}
                       <span className="text-arena-muted">[</span>
-                      <span className="text-indigo-tech">'Laravel'</span>,{' '}
-                      <span className="text-indigo-tech">'PHP'</span>,{' '}
+                      <span className="text-indigo-tech">'Laravel'</span>,{" "}
+                      <span className="text-indigo-tech">'PHP'</span>,{" "}
                       <span className="text-indigo-tech">'MySQL'</span>
                       <span className="text-arena-muted">]</span>,
                     </p>
                     <p className="pl-4 text-arena">
-                      <span className="text-coral">filosofia</span>:{' '}
-                      <span className="text-esmeralda">'Código limpio y orientado al usuario'</span>
+                      <span className="text-coral">filosofia</span>:{" "}
+                      <span className="text-esmeralda">
+                        'Código limpio y orientado al usuario'
+                      </span>
                     </p>
                     <p className="text-arena-muted">&#125;;</p>
                   </div>
@@ -160,26 +176,36 @@ export default function HeroSection() {
                   {/* Highlights en la parte inferior */}
                   <div className="mt-6 pt-4 border-t border-carbon-borde/70 grid grid-cols-3 gap-2 text-center">
                     <div className="p-2 rounded-xl bg-carbon/60 border border-carbon-borde/50">
-                      <span className="block text-xl font-bold font-display text-celeste">+4</span>
-                      <span className="text-[10px] text-arena-muted uppercase tracking-wider">Proyectos</span>
+                      <span className="block text-xl font-bold font-display text-celeste">
+                        +4
+                      </span>
+                      <span className="text-[10px] text-arena-muted uppercase tracking-wider">
+                        Proyectos
+                      </span>
                     </div>
                     <div className="p-2 rounded-xl bg-carbon/60 border border-carbon-borde/50">
-                      <span className="block text-xl font-bold font-display text-indigo-tech">Full</span>
-                      <span className="text-[10px] text-arena-muted uppercase tracking-wider">Stack</span>
+                      <span className="block text-xl font-bold font-display text-indigo-tech">
+                        Full
+                      </span>
+                      <span className="text-[10px] text-arena-muted uppercase tracking-wider">
+                        Stack
+                      </span>
                     </div>
                     <div className="p-2 rounded-xl bg-carbon/60 border border-carbon-borde/50">
-                      <span className="block text-xl font-bold font-display text-esmeralda">100%</span>
-                      <span className="text-[10px] text-arena-muted uppercase tracking-wider">Compromiso</span>
+                      <span className="block text-xl font-bold font-display text-esmeralda">
+                        100%
+                      </span>
+                      <span className="text-[10px] text-arena-muted uppercase tracking-wider">
+                        Compromiso
+                      </span>
                     </div>
                   </div>
-
                 </div>
               </div>
             </FadeIn>
           </div>
-
         </div>
       </div>
     </section>
-  )
+  );
 }

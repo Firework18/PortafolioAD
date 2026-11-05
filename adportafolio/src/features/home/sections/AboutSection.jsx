@@ -1,8 +1,8 @@
-import React from 'react'
-import Card3dHover from '../../../shared/ui/card3d/Card3dAbout'
-import { aboutData } from '../../../data/AboutData'
-import SectionHeader from '../../../shared/ui/section/SectionHeader'
-import FadeIn from '../../../shared/ui/motion/FadeIn'
+import React from "react";
+import Card3dHover from "../../../shared/ui/card3d/Card3dAbout";
+import { aboutData } from "../../../data/AboutData";
+import SectionHeader from "../../../shared/ui/section/SectionHeader";
+import FadeIn from "../../../shared/ui/motion/FadeIn";
 
 export default function AboutSection() {
   return (
@@ -24,12 +24,11 @@ export default function AboutSection() {
                 body={data.body}
                 color={data.color}
                 icon={data.icon}
-                img={data.img}
               />
             </FadeIn>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
