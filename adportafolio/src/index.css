@@ -12,64 +12,80 @@
 }
 
 /* ============================================================
-   PALETA BASE (3 colores)
-   - Celeste neón: acción, énfasis, enlaces activos
-   - Carbón:       fondos y superficies
-   - Arena:        texto y acentos suaves
+   PALETA BASE Y COLORES DE CONTRASTE
+   - Celeste neón: Color primario (acción, énfasis, enlaces activos)
+   - Índigo / Violeta: Complementario armónico tecnológico
+   - Ámbar & Coral: Contraste cromático cálido
+   - Esmeralda: Estado y badges positivos
+   - Carbón profundo: Superficies oscuras con matiz azul pizarra
+   - Arena brillante: Tipografía clara de alto contraste
    ============================================================ */
 @theme {
   --font-sans: "Ranade", sans-serif;
   --font-display: "Excon", sans-serif;
   --font-heading: "Excon", sans-serif;
 
+  /* Primario */
   --color-celeste: #22d3ee;
   --color-celeste-oscuro: #0e7490;
+  --color-celeste-muted: #155e75;
 
-  --color-carbon: #161616;
-  --color-carbon-claro: #1f1f1f;
-  --color-carbon-medio: #2b2b2b;
-  --color-carbon-borde: #3a3a3a;
+  /* Colores de contraste y combinación */
+  --color-indigo-tech: #6366f1;
+  --color-violet-tech: #8b5cf6;
+  --color-ambar: #f59e0b;
+  --color-coral: #fb7185;
+  --color-esmeralda: #10b981;
 
-  --color-arena: #f3ede2;
-  --color-arena-oscuro: #e8dcc4;
-  --color-arena-muted: #a39e93;
+  /* Fondos y superficies carbón */
+  --color-carbon: #0c1017;
+  --color-carbon-claro: #121824;
+  --color-carbon-medio: #1a2233;
+  --color-carbon-borde: #263248;
+
+  /* Tipografía y acentos claros */
+  --color-arena: #f8fafc;
+  --color-arena-oscuro: #e2e8f0;
+  --color-arena-muted: #94a3b8;
 }
 
 :root,
 [data-theme="dark"] {
-  --color-base-100: #161616;
-  --color-base-200: #1f1f1f;
-  --color-base-300: #2b2b2b;
-  --color-base-content: #f3ede2;
+  --color-base-100: #0c1017;
+  --color-base-200: #121824;
+  --color-base-300: #1a2233;
+  --color-base-content: #f8fafc;
 
   --color-primary: #22d3ee;
   --color-primary-content: #041217;
 
-  --color-secondary: #0e7490;
-  --color-secondary-content: #f3ede2;
+  --color-secondary: #6366f1;
+  --color-secondary-content: #ffffff;
 
-  --color-accent: #e8dcc4;
-  --color-accent-content: #161616;
+  --color-accent: #f59e0b;
+  --color-accent-content: #0f172a;
 
-  --color-neutral: #2b2b2b;
-  --color-neutral-content: #e8dcc4;
+  --color-neutral: #1a2233;
+  --color-neutral-content: #e2e8f0;
 
-  --color-info: #a39e93;
-  --color-info-content: #161616;
+  --color-info: #38bdf8;
+  --color-info-content: #041217;
 
-  --color-success: #7a8b6f;
-  --color-success-content: #0f140d;
+  --color-success: #10b981;
+  --color-success-content: #03140d;
 
-  --color-warning: #e8dcc4;
-  --color-warning-content: #161616;
+  --color-warning: #f59e0b;
+  --color-warning-content: #140c03;
 
-  --color-error: #d0312d;
+  --color-error: #fb7185;
   --color-error-content: #ffffff;
 }
 
-/* Estilos base dentro de @layer base para que las utilidades
-   de Tailwind (font-bold, font-medium, etc.) puedan sobrescribirlos */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-sans), sans-serif;
     font-weight: 300;
@@ -77,6 +93,7 @@
     color: var(--color-arena);
     letter-spacing: 0.01em;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
   h1,
@@ -133,60 +150,62 @@
   --radius-4xl: calc(var(--radius) * 2.6);
   --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
   --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+
   @keyframes shimmer-slide {
-  to {
-    transform: translate(calc(100cqw - 100%), 0);
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
     }
   }
+
   @keyframes spin-around {
-  0% {
-    transform: translateZ(0) rotate(0);
+    0% {
+      transform: translateZ(0) rotate(0);
     }
-  15%, 35% {
-    transform: translateZ(0) rotate(90deg);
+    15%, 35% {
+      transform: translateZ(0) rotate(90deg);
     }
-  65%, 85% {
-    transform: translateZ(0) rotate(270deg);
+    65%, 85% {
+      transform: translateZ(0) rotate(270deg);
     }
-  100% {
-    transform: translateZ(0) rotate(360deg);
+    100% {
+      transform: translateZ(0) rotate(360deg);
     }
   }
 }
 
-/* shadcn/ui: mapeado a la misma paleta */
+/* shadcn/ui */
 :root {
-  --background: #161616;
-  --foreground: #f3ede2;
-  --card: #1f1f1f;
-  --card-foreground: #f3ede2;
-  --popover: #1f1f1f;
-  --popover-foreground: #f3ede2;
+  --background: #0c1017;
+  --foreground: #f8fafc;
+  --card: #121824;
+  --card-foreground: #f8fafc;
+  --popover: #121824;
+  --popover-foreground: #f8fafc;
   --primary: #22d3ee;
   --primary-foreground: #041217;
-  --secondary: #2b2b2b;
-  --secondary-foreground: #f3ede2;
-  --muted: #242424;
-  --muted-foreground: #a39e93;
-  --accent: #e8dcc4;
-  --accent-foreground: #161616;
-  --destructive: #d0312d;
-  --border: #3a3a3a;
-  --input: #3a3a3a;
+  --secondary: #1a2233;
+  --secondary-foreground: #f8fafc;
+  --muted: #161e2e;
+  --muted-foreground: #94a3b8;
+  --accent: #f59e0b;
+  --accent-foreground: #0f172a;
+  --destructive: #fb7185;
+  --border: #263248;
+  --input: #263248;
   --ring: #22d3ee;
   --chart-1: #22d3ee;
-  --chart-2: #e8dcc4;
-  --chart-3: #0e7490;
-  --chart-4: #a39e93;
-  --chart-5: #5c5852;
+  --chart-2: #6366f1;
+  --chart-3: #f59e0b;
+  --chart-4: #10b981;
+  --chart-5: #fb7185;
   --radius: 0.625rem;
-  --sidebar: #1f1f1f;
-  --sidebar-foreground: #f3ede2;
+  --sidebar: #121824;
+  --sidebar-foreground: #f8fafc;
   --sidebar-primary: #22d3ee;
   --sidebar-primary-foreground: #041217;
-  --sidebar-accent: #2b2b2b;
-  --sidebar-accent-foreground: #f3ede2;
-  --sidebar-border: #3a3a3a;
+  --sidebar-accent: #1a2233;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #263248;
   --sidebar-ring: #22d3ee;
 }
 

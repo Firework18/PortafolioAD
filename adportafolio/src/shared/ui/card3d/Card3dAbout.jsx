@@ -1,36 +1,50 @@
 import React from 'react'
 
-export default function Card3dHover({ title, body, img, color, icon }) {
-    return (
-        <div>
-            <div className="hover-3d h-full">
-                {/* content */}
-                <div className="card bg-base-100  shadow-sm">
-                    <figure className="px-10 pt-10">
-                        <img
-                            src={`/img/${img}`}
-                            alt={`Imagen-${title}`}
-                            className="rounded-xl w-full h-48" />
-                    </figure>
-                    <div className="card-body items-center text-center">
-                        <h4 className={`card-title badge badge-${color}`}>
-                            <i className={icon}></i>
-                            {title}
-                        </h4>
-                        <p>{body}</p>
+export default function Card3dHover({ title, body, img, color = 'primary', icon }) {
+  const colorMap = {
+    primary: 'border-celeste/30 text-celeste bg-celeste/10',
+    secondary: 'border-indigo-tech/40 text-indigo-tech bg-indigo-tech/10',
+    accent: 'border-ambar/40 text-ambar bg-ambar/10',
+  }
 
-                    </div>
-                </div>
-                {/* 8 empty divs needed for the 3D effect */}
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+  const badgeColor = colorMap[color] || colorMap.primary
+
+  return (
+    <div className="w-full">
+      <div className="hover-3d h-full w-full">
+        <div className="card bg-carbon-claro/85 border border-carbon-borde hover:border-celeste/50 transition-all duration-300 rounded-2xl shadow-xl overflow-hidden backdrop-blur-sm h-full flex flex-col justify-between">
+          <figure className="px-6 pt-6">
+            <div className="w-full h-44 rounded-xl overflow-hidden bg-carbon/60 border border-carbon-borde/40 flex items-center justify-center p-3">
+              <img
+                src={`/img/${img}`}
+                alt={`Ilustración de ${title}`}
+                className="max-h-full max-w-full object-contain filter drop-shadow-md hover:scale-105 transition-transform duration-300"
+              />
             </div>
+          </figure>
+
+          <div className="card-body p-6 text-center flex flex-col items-center flex-grow">
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider border ${badgeColor}`}>
+              {icon && <i className={`${icon} text-sm`} />}
+              <span className="font-semibold">{title}</span>
+            </span>
+
+            <p className="mt-3 text-sm text-arena-muted leading-relaxed font-sans">
+              {body}
+            </p>
+          </div>
         </div>
-    )
+
+        {/* 8 empty divs needed for daisyUI hover-3d effect */}
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  )
 }
