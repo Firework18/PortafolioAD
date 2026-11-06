@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from '../../../shared/ui/buttons/Button'
 import SectionHeader from '../../../shared/ui/section/SectionHeader'
 import FadeIn from '../../../shared/ui/motion/FadeIn'
+import Card from '../../../shared/ui/card/Card'
 
 export default function ContactSection() {
   const [sent, setSent] = useState(false)
@@ -42,8 +43,8 @@ export default function ContactSection() {
           {/* Columna Izquierda: Tarjetas de Información */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             <FadeIn delay={0.1}>
-              <div className="p-6 rounded-2xl bg-carbon-claro/80 border border-carbon-borde hover:border-celeste/40 transition-colors shadow-lg backdrop-blur-sm flex items-start gap-4">
-                <div className="p-3.5 rounded-xl bg-celeste/10 text-celeste text-2xl border border-celeste/20">
+              <Card className="p-6 flex items-start gap-4">
+                <div className="p-3.5 rounded-xl bg-white/[0.04] text-celeste text-2xl border border-white/10 flex-shrink-0">
                   <i className="bi bi-envelope-fill"></i>
                 </div>
                 <div>
@@ -60,12 +61,12 @@ export default function ContactSection() {
                     Enviar correo directo →
                   </a>
                 </div>
-              </div>
+              </Card>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="p-6 rounded-2xl bg-carbon-claro/80 border border-carbon-borde hover:border-indigo-tech/40 transition-colors shadow-lg backdrop-blur-sm flex items-start gap-4">
-                <div className="p-3.5 rounded-xl bg-indigo-tech/10 text-indigo-tech text-2xl border border-indigo-tech/20">
+              <Card className="p-6 flex items-start gap-4">
+                <div className="p-3.5 rounded-xl bg-white/[0.04] text-indigo-tech text-2xl border border-white/10 flex-shrink-0">
                   <i className="bi bi-geo-alt-fill"></i>
                 </div>
                 <div>
@@ -76,15 +77,15 @@ export default function ContactSection() {
                     Lima, Perú
                   </h3>
                   <p className="text-xs text-esmeralda font-mono mt-1">
-                    • Disponible para trabajo remoto o híbrido
+                    • Disponible para trabajo remoto o presencial
                   </p>
                 </div>
-              </div>
+              </Card>
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <div className="p-6 rounded-2xl bg-carbon-claro/80 border border-carbon-borde hover:border-ambar/40 transition-colors shadow-lg backdrop-blur-sm flex items-start gap-4">
-                <div className="p-3.5 rounded-xl bg-ambar/10 text-ambar text-2xl border border-ambar/20">
+              <Card className="p-6 flex items-start gap-4">
+                <div className="p-3.5 rounded-xl bg-white/[0.04] text-ambar text-2xl border border-white/10 flex-shrink-0">
                   <i className="bi bi-share-fill"></i>
                 </div>
                 <div>
@@ -99,7 +100,7 @@ export default function ContactSection() {
                       href="https://github.com/Firework18/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-1.5 rounded-lg bg-carbon border border-carbon-borde text-xs font-mono text-arena hover:text-celeste hover:border-celeste/40 transition-colors flex items-center gap-1.5"
+                      className="px-3 py-1.5 rounded-lg bg-carbon border border-white/10 text-xs font-mono text-arena hover:text-celeste hover:border-celeste/40 transition-colors flex items-center gap-1.5"
                     >
                       <i className="bi bi-github"></i> GitHub
                     </a>
@@ -107,21 +108,20 @@ export default function ContactSection() {
                       href="https://linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-1.5 rounded-lg bg-carbon border border-carbon-borde text-xs font-mono text-arena hover:text-indigo-tech hover:border-indigo-tech/40 transition-colors flex items-center gap-1.5"
+                      className="px-3 py-1.5 rounded-lg bg-carbon border border-white/10 text-xs font-mono text-arena hover:text-indigo-tech hover:border-indigo-tech/40 transition-colors flex items-center gap-1.5"
                     >
                       <i className="bi bi-linkedin"></i> LinkedIn
                     </a>
                   </div>
                 </div>
-              </div>
+              </Card>
             </FadeIn>
           </div>
 
           {/* Columna Derecha: Formulario de Contacto */}
           <div className="lg:col-span-7">
             <FadeIn delay={0.2} direction="left">
-              <div className="p-7 sm:p-9 rounded-2xl bg-carbon-claro/90 border border-carbon-borde shadow-2xl backdrop-blur-md">
-                
+              <Card className="p-7 sm:p-9" hoverable={false}>
                 {sent && (
                   <div className="alert alert-success mb-6 text-sm font-sans rounded-xl bg-esmeralda/15 text-esmeralda border border-esmeralda/30">
                     <i className="bi bi-check-circle-fill text-lg"></i>
@@ -143,7 +143,7 @@ export default function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Ej. Juan Pérez"
-                        className="w-full px-4 py-3 rounded-xl bg-carbon/70 border border-carbon-borde focus:border-celeste focus:ring-1 focus:ring-celeste text-arena text-sm placeholder:text-arena-muted/50 transition-colors outline-none"
+                        className="w-full px-4 py-3 rounded-xl bg-carbon/70 border border-white/10 focus:border-celeste/60 focus:ring-1 focus:ring-celeste/60 text-arena text-sm placeholder:text-arena-muted/50 transition-colors outline-none"
                       />
                     </div>
 
@@ -159,7 +159,7 @@ export default function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="juan@ejemplo.com"
-                        className="w-full px-4 py-3 rounded-xl bg-carbon/70 border border-carbon-borde focus:border-celeste focus:ring-1 focus:ring-celeste text-arena text-sm placeholder:text-arena-muted/50 transition-colors outline-none"
+                        className="w-full px-4 py-3 rounded-xl bg-carbon/70 border border-white/10 focus:border-celeste/60 focus:ring-1 focus:ring-celeste/60 text-arena text-sm placeholder:text-arena-muted/50 transition-colors outline-none"
                       />
                     </div>
                   </div>
@@ -176,7 +176,7 @@ export default function ContactSection() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Desarrollo de aplicación, consultoría, etc."
-                      className="w-full px-4 py-3 rounded-xl bg-carbon/70 border border-carbon-borde focus:border-celeste focus:ring-1 focus:ring-celeste text-arena text-sm placeholder:text-arena-muted/50 transition-colors outline-none"
+                      className="w-full px-4 py-3 rounded-xl bg-carbon/70 border border-white/10 focus:border-celeste/60 focus:ring-1 focus:ring-celeste/60 text-arena text-sm placeholder:text-arena-muted/50 transition-colors outline-none"
                     />
                   </div>
 
@@ -192,7 +192,7 @@ export default function ContactSection() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Cuéntame sobre los requerimientos, tiempos y objetivos de tu proyecto..."
-                      className="w-full px-4 py-3 rounded-xl bg-carbon/70 border border-carbon-borde focus:border-celeste focus:ring-1 focus:ring-celeste text-arena text-sm placeholder:text-arena-muted/50 transition-colors outline-none resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-carbon/70 border border-white/10 focus:border-celeste/60 focus:ring-1 focus:ring-celeste/60 text-arena text-sm placeholder:text-arena-muted/50 transition-colors outline-none resize-none"
                     ></textarea>
                   </div>
 
@@ -211,8 +211,7 @@ export default function ContactSection() {
                     </span>
                   </div>
                 </form>
-
-              </div>
+              </Card>
             </FadeIn>
           </div>
 

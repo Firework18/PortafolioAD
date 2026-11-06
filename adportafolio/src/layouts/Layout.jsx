@@ -32,7 +32,7 @@ export default function Layout() {
 
       <Modal isOpen={isOpen} closeModal={closeModal} handleClickModal={handleClickModal}>
         {typeModal === 'ShowImage' && (
-          <ModalShowImage dataSelected={dataSelected} key={dataSelected} />
+          <ModalShowImage dataSelected={dataSelected} key={dataSelected?.id || 'modal-show-image'} />
         )}
       </Modal>
     </div>

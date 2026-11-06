@@ -1,187 +1,120 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import Button from "../../shared/ui/buttons/Button";
-import logoA from "../../assets/logoA.svg";
-import logotipo from "../../assets/logotipo.png";
+import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import logoA from '../../assets/logoA.svg'
+import logotipo from '../../assets/logotipo.png'
 
-const MotionSpan = motion.span;
+const MotionSpan = motion.span
 
 const NAV_ITEMS = [
-  { id: "home", label: "Inicio" },
-  { id: "about", label: "Sobre Mí" },
-  { id: "studies", label: "Estudios" },
-  { id: "certificates", label: "Certificados" },
-  { id: "skills", label: "Skills" },
-  { id: "proyects", label: "Proyectos" },
-];
+  { id: 'home', label: 'Inicio', icon: 'bi-house' },
+  { id: 'about', label: 'Sobre Mí', icon: 'bi-person' },
+  { id: 'studies', label: 'Estudios', icon: 'bi-mortarboard' },
+  { id: 'certificates', label: 'Certificados', icon: 'bi-award' },
+  { id: 'skills', label: 'Skills', icon: 'bi-cpu' },
+  { id: 'proyects', label: 'Proyectos', icon: 'bi-code-slash' },
+  { id: 'contact', label: 'Contacto', icon: 'bi-envelope' },
+]
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("home");
-  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
-    const sectionIds = [
-      "home",
-      "about",
-      "studies",
-      "certificates",
-      "skills",
-      "proyects",
-      "contact",
-    ];
+    const sectionIds = ['home', 'about', 'studies', 'certificates', 'skills', 'proyects', 'contact']
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 180;
+      const scrollPosition = window.scrollY + window.innerHeight * 0.35
 
       for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sectionIds[i]);
+        const el = document.getElementById(sectionIds[i])
         if (el) {
-          const top = el.offsetTop;
+          const top = el.offsetTop
           if (scrollPosition >= top) {
-            setActiveSection(sectionIds[i]);
-            break;
+            setActiveSection(sectionIds[i])
+            break
           }
         }
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleNavClick = (e, id) => {
-    e.preventDefault();
-    const target = document.getElementById(id);
+    e.preventDefault()
+    const target = document.getElementById(id)
     if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-      setActiveSection(id);
-      setIsOpen(false);
+      target.scrollIntoView({ behavior: 'smooth' })
+      setActiveSection(id)
     }
-  };
+  }
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-      <div className="navbar bg-carbon-claro/80 backdrop-blur-md border border-carbon-borde/80 rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.45),0_0_15px_rgba(34,211,238,0.06)] px-4 sm:px-6 py-2 justify-between">
-        {/* Brand con logoA y logotipo */}
-        <div className="navbar-start w-auto">
-          <a
-            href="#home"
-            onClick={(e) => handleNavClick(e, "home")}
-            className="flex items-center gap-3 group transition-transform active:scale-95"
-            aria-label="Ir a Inicio"
-          >
-            <img
-              src={logotipo}
-              alt="Alessandro Del Carpio"
-              className="h-9 w-auto object-contain hidden sm:block drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
-            />
-            <span className="text-base font-bold font-display text-celeste tracking-wider sm:hidden">
-              Alessandro
-            </span>
-          </a>
-        </div>
-
-        {/* Desktop Menu con opción activa resaltada */}
-        <div className="navbar-center hidden lg:flex">
-          <nav className="flex items-center gap-1 p-1 rounded-xl bg-carbon/50 border border-carbon-borde/40">
-            {NAV_ITEMS.map((item) => {
-              const isActive = activeSection === item.id;
-              return (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={(e) => handleNavClick(e, item.id)}
-                  className={`relative px-3.5 py-1.5 text-xs uppercase tracking-wider font-display font-medium rounded-lg transition-colors duration-200 select-none ${
-                    isActive
-                      ? "text-celeste font-semibold"
-                      : "text-arena-muted hover:text-arena hover:bg-white/5"
-                  }`}
-                >
-                  {item.label}
-
-                  {/* Resaltado animado de la sección activa */}
-                  {isActive && (
-                    <MotionSpan
-                      layoutId="active-nav-indicator"
-                      className="absolute inset-0 rounded-lg bg-celeste/15 border border-celeste/35 shadow-[0_0_12px_rgba(34,211,238,0.25)] -z-10"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-                </a>
-              );
-            })}
-          </nav>
-        </div>
-
-        {/* CTA Contacto y Menú Móvil */}
-        <div className="navbar-end w-auto flex items-center gap-2">
-          <Button
-            href="#contact"
-            onClick={(e) => handleNavClick(e, "contact")}
-            variant={activeSection === "contact" ? "primary" : "outline"}
-            size="sm"
-            className="hidden lg:inline-flex"
-          >
-            Contacto
-          </Button>
-
-          {/* Menú Mobile */}
-          <div className="dropdown dropdown-end lg:hidden">
-            <div
-              tabIndex={0}
-              role="button"
-              onClick={() => setIsOpen(!isOpen)}
-              className="btn btn-ghost btn-circle btn-sm text-celeste"
-              aria-label="Abrir menú"
-            >
-              <i className="bi bi-list text-2xl"></i>
-            </div>
-            {isOpen && (
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-carbon-claro border border-carbon-borde rounded-xl z-50 mt-3 w-56 p-2.5 shadow-2xl space-y-1 font-display uppercase tracking-wider text-xs"
-              >
-                {NAV_ITEMS.map((item) => {
-                  const isActive = activeSection === item.id;
-                  return (
-                    <li key={item.id}>
-                      <a
-                        href={`#${item.id}`}
-                        onClick={(e) => handleNavClick(e, item.id)}
-                        className={`rounded-lg py-2 ${
-                          isActive
-                            ? "bg-celeste/20 text-celeste font-bold border-l-2 border-celeste"
-                            : "text-arena-muted hover:text-arena hover:bg-white/5"
-                        }`}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  );
-                })}
-                <li>
-                  <a
-                    href="#contact"
-                    onClick={(e) => handleNavClick(e, "contact")}
-                    className={`rounded-lg py-2 ${
-                      activeSection === "contact"
-                        ? "bg-celeste/20 text-celeste font-bold border-l-2 border-celeste"
-                        : "text-arena-muted hover:text-arena hover:bg-white/5"
-                    }`}
-                  >
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            )}
+    <>
+      {/* Brand Badge Flotante Superior Izquierdo */}
+      <header className="fixed top-5 left-5 md:top-7 md:left-8 z-40">
+        <a
+          href="#home"
+          onClick={(e) => handleNavClick(e, 'home')}
+          className="flex items-center gap-3 bg-carbon-claro/80 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-white/10 hover:border-celeste/40 transition-all duration-300 shadow-xl group"
+          aria-label="Ir al inicio"
+        >
+          <div className="w-7 h-7 rounded-xl bg-carbon-medio p-1 border border-white/10 flex items-center justify-center group-hover:border-celeste/40 transition-colors">
+            <img src={logoA} alt="Logo" className="w-full h-full object-contain filter invert" />
           </div>
+          <img
+            src={logotipo}
+            alt="Alessandro Del Carpio"
+            className="h-6 w-auto object-contain hidden sm:block opacity-90 group-hover:opacity-100 transition-opacity"
+          />
+        </a>
+      </header>
+
+      {/* Sidebar Vertical Derecho Agrupado al Centro */}
+      <nav
+        aria-label="Navegación principal"
+        className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center"
+      >
+        <div className="bg-carbon-claro/85 backdrop-blur-xl border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.6)] rounded-full p-2 sm:p-2.5 flex flex-col items-center gap-1.5 sm:gap-2">
+          {NAV_ITEMS.map((item) => {
+            const isActive = activeSection === item.id
+
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleNavClick(e, item.id)}
+                aria-label={item.label}
+                className={`group relative w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all duration-200 ${
+                  isActive
+                    ? 'text-celeste font-bold'
+                    : 'text-arena-muted hover:text-arena hover:bg-white/5'
+                }`}
+              >
+                <i className={`bi ${item.icon} text-base sm:text-lg`} />
+
+                {/* Fondo activo con transición física */}
+                {isActive && (
+                  <MotionSpan
+                    layoutId="sidebar-active-indicator"
+                    className="absolute inset-0 rounded-full bg-celeste/15 border border-celeste/35 shadow-[0_0_12px_rgba(34,211,238,0.3)] -z-10"
+                    transition={{ type: 'spring', stiffness: 380, damping: 28 }}
+                  />
+                )}
+
+                {/* Tooltip UX a la izquierda en desktop */}
+                <span className="hidden md:flex absolute right-full mr-3.5 px-3 py-1.5 rounded-lg bg-carbon border border-white/15 text-arena text-xs font-mono uppercase tracking-wider whitespace-nowrap shadow-2xl pointer-events-none opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-celeste" />
+                  {item.label}
+                  {/* Flechita del tooltip */}
+                  <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-carbon border-t border-r border-white/15 rotate-45" />
+                </span>
+              </a>
+            )
+          })}
         </div>
-      </div>
-    </header>
-  );
+      </nav>
+    </>
+  )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { studiesData } from '../../../data/StudiesData'
 import SectionHeader from '../../../shared/ui/section/SectionHeader'
 import FadeIn from '../../../shared/ui/motion/FadeIn'
+import Card from '../../../shared/ui/card/Card'
 
 export default function StudiesSection() {
   return (
@@ -18,13 +19,13 @@ export default function StudiesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {studiesData.map((item, index) => (
             <FadeIn key={item.id} delay={index * 0.15}>
-              <div className="relative h-full p-7 sm:p-8 rounded-2xl bg-carbon-claro/80 border border-carbon-borde hover:border-celeste/50 transition-all duration-300 group shadow-xl backdrop-blur-sm flex flex-col justify-between">
+              <Card className="p-7 sm:p-8 flex flex-col justify-between h-full group">
                 <div>
                   <div className="flex items-start justify-between gap-4">
-                    <div className="p-3.5 rounded-xl bg-celeste/10 text-celeste text-2xl border border-celeste/20 group-hover:scale-110 group-hover:bg-celeste/20 transition-all duration-300 shadow-[0_0_12px_rgba(34,211,238,0.15)]">
+                    <div className="p-3.5 rounded-xl bg-white/[0.04] text-celeste text-2xl border border-white/10 group-hover:scale-110 transition-transform duration-300">
                       <i className={item.icon}></i>
                     </div>
-                    <span className="px-3 py-1 text-xs font-mono uppercase tracking-wider rounded-full bg-esmeralda/15 text-esmeralda border border-esmeralda/30">
+                    <span className="px-3 py-1 text-xs font-mono uppercase tracking-wider rounded-full bg-white/[0.04] text-esmeralda border border-esmeralda/20">
                       {item.status}
                     </span>
                   </div>
@@ -34,11 +35,11 @@ export default function StudiesSection() {
                   </h3>
 
                   <div className="flex flex-wrap items-center gap-3 mt-2">
-                    <p className="text-celeste font-medium text-sm font-sans flex items-center gap-1.5">
-                      <i className="bi bi-building"></i>
+                    <p className="text-arena-muted font-medium text-sm font-sans flex items-center gap-1.5">
+                      <i className="bi bi-building text-celeste"></i>
                       {item.institution}
                     </p>
-                    <span className="text-carbon-borde">•</span>
+                    <span className="text-white/20">•</span>
                     <p className="text-xs text-arena-muted font-mono flex items-center gap-1.5">
                       <i className="bi bi-calendar3"></i>
                       {item.period}
@@ -50,11 +51,11 @@ export default function StudiesSection() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-carbon-borde/50 flex items-center justify-between text-xs text-arena-muted font-mono">
+                <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-arena-muted font-mono">
                   <span>Especialidad de Software</span>
                   <span className="text-indigo-tech font-semibold">Tecnología & Sistemas</span>
                 </div>
-              </div>
+              </Card>
             </FadeIn>
           ))}
         </div>
