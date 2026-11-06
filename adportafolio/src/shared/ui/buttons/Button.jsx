@@ -2,19 +2,17 @@ import React from 'react'
 
 const VARIANTS = {
   primary:
-    'bg-celeste text-carbon font-semibold border border-celeste/80 hover:bg-[#67e8f9] hover:border-[#67e8f9]',
+    'bg-celeste text-carbon font-semibold border border-celeste hover:bg-[#67e8f9] hover:border-[#67e8f9]',
   secondary:
-    'bg-white/[0.06] text-arena font-semibold border border-white/10 hover:bg-white/[0.1] hover:border-white/20',
+    'bg-ambar text-carbon font-semibold border border-ambar hover:bg-ambar-claro hover:border-ambar-claro shadow-[0_0_20px_rgba(245,158,11,0.18)]',
   accent:
-    'bg-ambar/10 text-ambar border border-ambar/30 hover:bg-ambar/15 hover:border-ambar/50',
-  coral:
-    'bg-coral/10 text-coral border border-coral/30 hover:bg-coral/15 hover:border-coral/50',
+    'bg-ambar/10 text-ambar border border-ambar/30 hover:bg-ambar/20 hover:border-ambar/50',
   outline:
-    'bg-transparent text-arena border border-white/15 hover:bg-white/[0.04] hover:border-white/30',
+    'bg-transparent text-arena border border-white/15 hover:bg-white/[0.05] hover:border-white/30',
   ghost:
     'bg-transparent text-arena-muted border border-transparent hover:bg-white/[0.05] hover:text-arena',
   cyber:
-    'bg-carbon-medio text-arena border border-white/15 hover:border-celeste/40 hover:bg-white/[0.04] hover:text-celeste [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)]',
+    'bg-carbon-medio text-arena border border-white/15 hover:border-ambar/50 hover:bg-white/[0.04] hover:text-ambar [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)]',
 }
 
 const SIZES = {
@@ -37,7 +35,7 @@ export function Button({
   ...props
 }) {
   const baseClasses =
-    'inline-flex items-center justify-center gap-2 rounded-lg font-display uppercase tracking-wider transition-colors duration-200 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-celeste/60 focus-visible:ring-offset-2 focus-visible:ring-offset-carbon active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none'
+    'inline-flex items-center justify-center gap-2 rounded-lg font-display uppercase tracking-wider transition-colors duration-200 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ambar/60 focus-visible:ring-offset-2 focus-visible:ring-offset-carbon active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none'
   const variantClass = VARIANTS[variant] || VARIANTS.primary
   const sizeClass = SIZES[size] || SIZES.md
   const widthClass = fullWidth ? 'w-full' : ''

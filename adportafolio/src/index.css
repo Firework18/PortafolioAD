@@ -12,80 +12,73 @@
 }
 
 /* ============================================================
-   PALETA BASE Y COLORES DE CONTRASTE
-   - Celeste neón: Color primario (acción, énfasis, enlaces activos)
-   - Índigo / Violeta: Complementario armónico tecnológico
-   - Ámbar & Coral: Contraste cromático cálido
-   - Esmeralda: Estado y badges positivos
-   - Carbón profundo: Superficies oscuras con matiz azul pizarra
-   - Arena brillante: Tipografía clara de alto contraste
+   PALETA BASE: NEGRO PURO / GRIS NEUTRO + CYAN (PRIMARY) + ÁMBAR (SECONDARY)
+   - Fondo principal: Negro profundo (#050505) y grises neutros puros (#0f0f0f, #181818)
+   - Primary: Cyan (#22d3ee)
+   - Secondary: Ámbar cálido (#f59e0b) — complementario directo del cyan
    ============================================================ */
 @theme {
   --font-sans: "Ranade", sans-serif;
   --font-display: "Excon", sans-serif;
   --font-heading: "Excon", sans-serif;
 
-  /* Primario */
+  /* Primary: Cyan */
   --color-celeste: #22d3ee;
-  --color-celeste-oscuro: #0e7490;
+  --color-celeste-oscuro: #0891b2;
   --color-celeste-muted: #155e75;
 
-  /* Colores de contraste y combinación */
-  --color-indigo-tech: #6366f1;
-  --color-violet-tech: #8b5cf6;
+  /* Secondary: Ámbar / Naranja cálido (complementario) */
   --color-ambar: #f59e0b;
-  --color-coral: #fb7185;
-  --color-esmeralda: #10b981;
+  --color-ambar-claro: #fbbf24;
+  --color-ambar-oscuro: #d97706;
 
-  /* Fondos y superficies carbón */
-  --color-carbon: #0c1017;
-  --color-carbon-claro: #121824;
-  --color-carbon-medio: #1a2233;
-  --color-carbon-borde: #263248;
+  /* Fondos negros y grises neutros (sin tinte azulado) */
+  --color-carbon: #050505;
+  --color-carbon-claro: #0f0f0f;
+  --color-carbon-medio: #181818;
+  --color-carbon-borde: #262626;
 
-  /* Tipografía y acentos claros */
-  --color-arena: #f8fafc;
-  --color-arena-oscuro: #e2e8f0;
-  --color-arena-muted: #94a3b8;
+  /* Tipografía en blanco y grises neutros */
+  --color-arena: #fafafa;
+  --color-arena-oscuro: #e5e5e5;
+  --color-arena-muted: #a3a3a3;
 }
 
 :root,
 [data-theme="dark"] {
-  --color-base-100: #0c1017;
-  --color-base-200: #121824;
-  --color-base-300: #1a2233;
-  --color-base-content: #f8fafc;
+  --color-base-100: #050505;
+  --color-base-200: #0f0f0f;
+  --color-base-300: #181818;
+  --color-base-content: #fafafa;
 
   --color-primary: #22d3ee;
-  --color-primary-content: #041217;
+  --color-primary-content: #050505;
 
-  --color-secondary: #6366f1;
-  --color-secondary-content: #ffffff;
+  --color-secondary: #f59e0b;
+  --color-secondary-content: #050505;
 
   --color-accent: #f59e0b;
-  --color-accent-content: #0f172a;
+  --color-accent-content: #050505;
 
-  --color-neutral: #1a2233;
-  --color-neutral-content: #e2e8f0;
+  --color-neutral: #181818;
+  --color-neutral-content: #e5e5e5;
 
-  --color-info: #38bdf8;
-  --color-info-content: #041217;
+  --color-info: #22d3ee;
+  --color-info-content: #050505;
 
-  --color-success: #10b981;
-  --color-success-content: #03140d;
+  --color-success: #22d3ee;
+  --color-success-content: #050505;
 
   --color-warning: #f59e0b;
-  --color-warning-content: #140c03;
+  --color-warning-content: #050505;
 
-  --color-error: #fb7185;
+  --color-error: #ef4444;
   --color-error-content: #ffffff;
 }
 
 @layer base {
   html {
-    /* Native anchors stay smooth; the JS navigation temporarily overrides
-       this while it drives the scroll frame by frame. */
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
   body {
@@ -108,7 +101,6 @@
     line-height: 1.15;
   }
 
-  /* GPU layer for fixed elements */
   .fixed {
     will-change: transform;
   }
@@ -116,7 +108,7 @@
 
 ::selection {
   background-color: var(--color-celeste);
-  color: #041217;
+  color: #050505;
 }
 
 @theme inline {
@@ -182,38 +174,38 @@
 
 /* shadcn/ui */
 :root {
-  --background: #0c1017;
-  --foreground: #f8fafc;
-  --card: #121824;
-  --card-foreground: #f8fafc;
-  --popover: #121824;
-  --popover-foreground: #f8fafc;
+  --background: #050505;
+  --foreground: #fafafa;
+  --card: #0f0f0f;
+  --card-foreground: #fafafa;
+  --popover: #0f0f0f;
+  --popover-foreground: #fafafa;
   --primary: #22d3ee;
-  --primary-foreground: #041217;
-  --secondary: #1a2233;
-  --secondary-foreground: #f8fafc;
-  --muted: #161e2e;
-  --muted-foreground: #94a3b8;
+  --primary-foreground: #050505;
+  --secondary: #f59e0b;
+  --secondary-foreground: #050505;
+  --muted: #181818;
+  --muted-foreground: #a3a3a3;
   --accent: #f59e0b;
-  --accent-foreground: #0f172a;
-  --destructive: #fb7185;
-  --border: #263248;
-  --input: #263248;
-  --ring: #22d3ee;
+  --accent-foreground: #050505;
+  --destructive: #ef4444;
+  --border: #262626;
+  --input: #262626;
+  --ring: #f59e0b;
   --chart-1: #22d3ee;
-  --chart-2: #6366f1;
-  --chart-3: #f59e0b;
-  --chart-4: #10b981;
-  --chart-5: #fb7185;
+  --chart-2: #f59e0b;
+  --chart-3: #fbbf24;
+  --chart-4: #0891b2;
+  --chart-5: #d97706;
   --radius: 0.625rem;
-  --sidebar: #121824;
-  --sidebar-foreground: #f8fafc;
+  --sidebar: #0f0f0f;
+  --sidebar-foreground: #fafafa;
   --sidebar-primary: #22d3ee;
-  --sidebar-primary-foreground: #041217;
-  --sidebar-accent: #1a2233;
-  --sidebar-accent-foreground: #f8fafc;
-  --sidebar-border: #263248;
-  --sidebar-ring: #22d3ee;
+  --sidebar-primary-foreground: #050505;
+  --sidebar-accent: #181818;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-border: #262626;
+  --sidebar-ring: #f59e0b;
 }
 
 @keyframes aurora-shift {
@@ -236,10 +228,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   .aurora-text-anim {
     animation: none;
   }

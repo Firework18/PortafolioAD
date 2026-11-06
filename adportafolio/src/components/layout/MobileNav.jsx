@@ -132,7 +132,7 @@ export default function MobileNav({ items, activeSection, onNavigate }) {
                     <span className="flex-1 text-sm font-medium">{item.label}</span>
                     {isActive && (
                       <span
-                        className="h-1.5 w-1.5 rounded-full bg-celeste"
+                        className="h-1.5 w-1.5 rounded-full bg-ambar"
                         aria-hidden="true"
                       />
                     )}

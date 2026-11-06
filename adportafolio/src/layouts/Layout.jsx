@@ -12,14 +12,14 @@ export default function Layout() {
   const { isOpen, closeModal, dataSelected, typeModal, handleClickModal } = useModal()
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-carbon text-arena selection:bg-celeste selection:text-carbon">
+    <div className="relative min-h-screen bg-carbon text-arena overflow-x-hidden selection:bg-ambar selection:text-carbon">
       <Particles
-        className="fixed inset-0 pointer-events-none z-0"
-        quantity={120}
-        ease={75}
-        color="#22d3ee"
-        size={0.5}
-        staticity={45}
+        className="fixed inset-0 pointer-events-none z-0 opacity-60"
+        quantity={90}
+        ease={80}
+        color="#a3a3a3"
+        size={0.45}
+        staticity={50}
       />
 
       <div className="relative z-10 flex flex-col min-h-screen">

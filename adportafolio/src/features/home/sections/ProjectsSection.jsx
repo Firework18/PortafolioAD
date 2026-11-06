@@ -20,15 +20,16 @@ export default function ProjectsSection() {
           highlight="Aplicaciones Desarrolladas"
           subtitle="Una selección de proyectos web que integran frontend moderno, APIs REST y bases de datos."
           watermark="PROYECTOS"
+          tone="primary"
         />
 
         <FadeIn delay={0.2} className="relative">
-          <div className="mb-6 flex items-center justify-end gap-2 px-1 sm:pr-14">
+          <div className="flex items-center justify-end mb-6 px-1 gap-2">
             <button
               type="button"
               onClick={() => swiperRef.current?.slidePrev()}
               aria-label="Proyecto anterior"
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-carbon-claro text-arena-muted transition-colors hover:border-white/25 hover:text-arena"
+              className="w-10 h-10 rounded-xl bg-carbon-claro/90 border border-white/10 hover:border-celeste/50 text-arena-muted hover:text-celeste flex items-center justify-center transition-all shadow-md"
             >
               <i className="bi bi-chevron-left text-base" />
             </button>
@@ -36,7 +37,7 @@ export default function ProjectsSection() {
               type="button"
               onClick={() => swiperRef.current?.slideNext()}
               aria-label="Siguiente proyecto"
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-carbon-claro text-arena-muted transition-colors hover:border-white/25 hover:text-arena"
+              className="w-10 h-10 rounded-xl bg-carbon-claro/90 border border-white/10 hover:border-celeste/50 text-arena-muted hover:text-celeste flex items-center justify-center transition-all shadow-md"
             >
               <i className="bi bi-chevron-right text-base" />
             </button>
@@ -74,8 +75,8 @@ export default function ProjectsSection() {
                 aria-label={`Ir al proyecto ${i + 1}`}
                 className={`rounded-full transition-all duration-300 ${
                   i === activeIndex
-                    ? 'h-2.5 w-6 bg-celeste'
-                    : 'h-2.5 w-2.5 bg-white/20 hover:bg-white/35'
+                    ? 'w-6 h-2.5 bg-celeste shadow-[0_0_8px_rgba(34,211,238,0.4)]'
+                    : 'w-2.5 h-2.5 bg-white/20 hover:bg-white/35'
                 }`}
               />
             ))}

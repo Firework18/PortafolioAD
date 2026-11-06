@@ -40,6 +40,7 @@ export default function CertificatesSection() {
           highlight="Especializaciones"
           subtitle="Certificados y diplomas que avalan mi formación continua en frontend, backend y metodologías ágiles."
           watermark="LOGROS"
+          tone="secondary"
         />
 
         <FadeIn delay={0.2} className="relative flex flex-col items-center">
@@ -48,7 +49,7 @@ export default function CertificatesSection() {
             <button
               onClick={handlePrev}
               aria-label="Certificado anterior"
-              className="absolute -left-2 z-20 hidden h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-carbon-claro text-arena-muted shadow-sm transition-colors hover:border-white/25 hover:text-arena active:scale-95 sm:flex lg:left-6"
+              className="hidden sm:flex absolute -left-2 lg:left-6 z-20 w-11 h-11 rounded-full bg-carbon-claro/90 border border-white/10 hover:border-ambar/50 text-arena-muted hover:text-ambar items-center justify-center shadow-xl backdrop-blur-md transition-all hover:scale-110 active:scale-95"
             >
               <i className="bi bi-chevron-left text-lg" />
             </button>
@@ -64,7 +65,7 @@ export default function CertificatesSection() {
               {certificatesData.map((cert) => (
                 <SwiperSlide
                   key={cert.id}
-                  className="cursor-grab overflow-hidden rounded-xl border border-white/10 bg-carbon active:cursor-grabbing"
+                  className="rounded-3xl overflow-hidden border border-white/10 bg-carbon shadow-[0_20px_50px_rgba(0,0,0,0.75)] cursor-grab active:cursor-grabbing"
                 >
                   <img
                     src={cert.img}
@@ -79,7 +80,7 @@ export default function CertificatesSection() {
             <button
               onClick={handleNext}
               aria-label="Siguiente certificado"
-              className="absolute -right-2 z-20 hidden h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-carbon-claro text-arena-muted shadow-sm transition-colors hover:border-white/25 hover:text-arena active:scale-95 sm:flex lg:right-6"
+              className="hidden sm:flex absolute -right-2 lg:right-6 z-20 w-11 h-11 rounded-full bg-carbon-claro/90 border border-white/10 hover:border-ambar/50 text-arena-muted hover:text-ambar items-center justify-center shadow-xl backdrop-blur-md transition-all hover:scale-110 active:scale-95"
             >
               <i className="bi bi-chevron-right text-lg" />
             </button>
@@ -94,8 +95,8 @@ export default function CertificatesSection() {
                 aria-label={`Ir al certificado ${i + 1}`}
                 className={`rounded-full transition-all duration-300 ${
                   i === activeIndex
-                    ? 'h-2.5 w-6 bg-celeste'
-                    : 'h-2.5 w-2.5 bg-white/20 hover:bg-white/40'
+                    ? 'w-6 h-2.5 bg-ambar shadow-[0_0_8px_rgba(245,158,11,0.45)]'
+                    : 'w-2.5 h-2.5 bg-white/20 hover:bg-white/40'
                 }`}
               />
             ))}

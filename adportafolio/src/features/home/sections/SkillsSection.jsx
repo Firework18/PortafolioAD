@@ -13,8 +13,8 @@ export default function SkillsSection() {
   )
 
   const TechCard = ({ tec }) => (
-    <div className="group flex h-28 w-32 select-none flex-col items-center justify-center rounded-xl border border-white/[0.08] bg-carbon/60 p-4 text-center transition-colors duration-200 hover:border-white/20 hover:bg-carbon-medio/70 sm:h-32 sm:w-40">
-      <div className="flex h-11 w-11 items-center justify-center transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:w-12">
+    <div className="w-32 sm:w-40 h-28 sm:h-32 p-4 rounded-2xl bg-carbon/80 border border-white/[0.08] hover:border-white/20 hover:bg-carbon-medio/90 transition-all duration-300 flex flex-col items-center justify-center text-center group shadow-sm select-none">
+      <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
         <img
           src={tec.img}
           alt={tec.name}
@@ -22,7 +22,7 @@ export default function SkillsSection() {
           className="max-h-full max-w-full object-contain"
         />
       </div>
-      <h4 className="mt-2.5 max-w-full truncate font-display text-xs font-bold text-arena transition-colors group-hover:text-celeste sm:text-sm">
+      <h4 className="mt-2.5 text-xs sm:text-sm font-display font-bold text-arena-oscuro group-hover:text-arena transition-colors truncate max-w-full">
         {tec.name}
       </h4>
     </div>
@@ -39,15 +39,15 @@ export default function SkillsSection() {
           highlight="Habilidades Técnicas"
           subtitle="Un ecosistema completo de tecnologías para frontend reactivo, servicios backend robustos, bases de datos y herramientas de desarrollo."
           watermark="SKILLS"
+          tone="primary"
         />
 
         <FadeIn delay={0.2}>
-          <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-carbon-claro p-6 sm:p-10">
+          <div className="relative rounded-3xl bg-carbon-claro/90 border border-white/[0.08] p-6 sm:p-10 shadow-2xl backdrop-blur-md overflow-hidden">
 
-            <div className="mb-6 flex items-center gap-3 border-b border-white/[0.06] pb-6">
-              <h3 className="font-display text-lg font-bold text-arena">Stack Tecnológico</h3>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-0.5 font-mono text-xs text-arena-muted">
-                <span className="h-1 w-1 rounded-full bg-celeste" aria-hidden="true" />
+            <div className="flex items-center gap-3 pb-6 mb-6 border-b border-white/[0.06]">
+              <h3 className="text-lg font-bold font-display text-arena">Stack Tecnológico</h3>
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono bg-ambar/10 text-ambar border border-ambar/25">
                 {allTechnologies.length} Tecnologías
               </span>
             </div>
