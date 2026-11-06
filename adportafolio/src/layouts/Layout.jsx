@@ -12,7 +12,7 @@ export default function Layout() {
   const { isOpen, closeModal, dataSelected, typeModal, handleClickModal } = useModal()
 
   return (
-    <div className="relative min-h-screen bg-carbon text-arena scroll-smooth overflow-x-hidden selection:bg-celeste selection:text-carbon">
+    <div className="relative min-h-screen overflow-x-hidden bg-carbon text-arena selection:bg-celeste selection:text-carbon">
       <Particles
         className="fixed inset-0 pointer-events-none z-0"
         quantity={120}

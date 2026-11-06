@@ -13,7 +13,6 @@ export default function ProyectCard3d({ project }) {
         <div
           className="relative h-48 sm:h-52 w-full overflow-hidden bg-carbon/60 cursor-pointer"
           onClick={() => handleClickModal('ShowImage', project)}
-          title="Click para ver en pantalla completa"
         >
           <img
             src={img}
@@ -21,18 +20,12 @@ export default function ProyectCard3d({ project }) {
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-carbon-claro via-carbon-claro/30 to-transparent" />
-
-          {/* Hint de ampliar imagen */}
-          <div className="absolute top-3 right-3 px-2.5 py-1.5 rounded-xl bg-carbon/80 backdrop-blur-md border border-white/10 text-arena-muted group-hover:text-celeste group-hover:border-celeste/30 transition-all shadow-lg flex items-center gap-1.5 text-xs font-mono">
-            <i className="bi bi-arrows-fullscreen"></i>
-            <span>Ver</span>
-          </div>
         </div>
 
         {/* Contenido */}
         <div className="p-6">
           <div className="flex items-start justify-between gap-3">
-            <h3 className="text-lg sm:text-xl font-bold font-display text-arena group-hover:text-celeste transition-colors leading-snug">
+            <h3 className="text-lg font-bold font-display leading-snug text-arena transition-colors group-hover:text-white sm:text-xl">
               {name}
             </h3>
 
@@ -78,7 +71,7 @@ export default function ProyectCard3d({ project }) {
           <button
             type="button"
             onClick={() => handleClickModal('ShowImage', project)}
-            className="text-xs font-display uppercase tracking-wider text-celeste hover:underline flex items-center gap-1 flex-shrink-0 font-semibold"
+            className="flex flex-shrink-0 items-center gap-1 font-display text-xs font-semibold uppercase tracking-wider text-celeste hover:underline"
           >
             Detalles <i className="bi bi-arrow-right"></i>
           </button>

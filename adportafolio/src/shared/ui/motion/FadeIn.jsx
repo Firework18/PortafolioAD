@@ -6,9 +6,9 @@ const MotionDiv = motion.div
 export function FadeIn({
   children,
   delay = 0,
-  duration = 0.55,
+  duration = 0.6,
   direction = 'up',
-  distance = 24,
+  distance = 20,
   className = '',
   once = true,
   ...props
@@ -27,11 +27,11 @@ export function FadeIn({
     <MotionDiv
       initial={{ opacity: 0, ...offset }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once, margin: '-50px' }}
+      viewport={{ once, margin: '-80px' }}
       transition={{
         duration,
         delay,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
       {...props}

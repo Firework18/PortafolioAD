@@ -21,8 +21,8 @@ export default function ModalShowImage({ dataSelected }) {
       {/* Contenido detallado del proyecto */}
       <div className="p-6 sm:p-8 flex flex-col gap-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-white/[0.04] text-celeste border border-white/10 mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-celeste animate-pulse" />
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-xs uppercase tracking-wider text-arena-muted">
+            <span className="h-1.5 w-1.5 rounded-full bg-celeste" aria-hidden="true" />
             Proyecto Destacado
           </div>
 

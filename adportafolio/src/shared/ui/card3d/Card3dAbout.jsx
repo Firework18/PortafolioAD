@@ -18,7 +18,7 @@ export default function Card3dHover({ title, body, img, icon }) {
 
           <div className="p-6 text-center flex flex-col items-center flex-grow">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider border border-white/10 text-arena bg-white/[0.03]">
-              {icon && <i className={`${icon} text-sm text-celeste`} />}
+              {icon && <i className={`${icon} text-sm text-arena-muted`} />}
               <span className="font-semibold">{title}</span>
             </span>
 

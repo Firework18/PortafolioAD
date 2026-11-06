@@ -3,44 +3,32 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, FreeMode } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/free-mode'
-import 'swiper/css/autoplay'
 import { tecnologiesData } from '../../../data/TecnologiesData'
 import SectionHeader from '../../../shared/ui/section/SectionHeader'
 import FadeIn from '../../../shared/ui/motion/FadeIn'
 
 export default function SkillsSection() {
   const allTechnologies = tecnologiesData.flatMap((cat) =>
-    cat.content.map((item) => ({
-      ...item,
-      category: cat.name,
-      categoryColor: cat.color,
-    }))
+    cat.content.map((item) => ({ ...item, category: cat.name }))
   )
 
-  const row1 = allTechnologies.slice(0, 9)
-  const row2 = allTechnologies.slice(9)
-
-  const renderTechCard = (tec) => {
-    return (
-      <div className="w-36 sm:w-44 h-32 sm:h-36 p-4 rounded-2xl bg-carbon/70 border border-white/[0.08] hover:border-white/25 hover:bg-carbon-medio/90 hover:scale-105 transition-all duration-300 flex flex-col items-center justify-center text-center group shadow-md select-none">
-        <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-110">
-          <img
-            src={tec.img}
-            alt={tec.name}
-            className="max-h-full max-w-full object-contain filter group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]"
-          />
-        </div>
-
-        <h4 className="mt-2 text-xs sm:text-sm font-display font-bold text-arena group-hover:text-celeste transition-colors truncate max-w-full">
-          {tec.name}
-        </h4>
-
-        <span className="mt-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider text-arena-muted bg-white/[0.04]">
-          {tec.category}
-        </span>
+  const TechCard = ({ tec }) => (
+    <div className="group flex h-28 w-32 select-none flex-col items-center justify-center rounded-xl border border-white/[0.08] bg-carbon/60 p-4 text-center transition-colors duration-200 hover:border-white/20 hover:bg-carbon-medio/70 sm:h-32 sm:w-40">
+      <div className="flex h-11 w-11 items-center justify-center transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:w-12">
+        <img
+          src={tec.img}
+          alt={tec.name}
+          loading="lazy"
+          className="max-h-full max-w-full object-contain"
+        />
       </div>
-    )
-  }
+      <h4 className="mt-2.5 max-w-full truncate font-display text-xs font-bold text-arena transition-colors group-hover:text-celeste sm:text-sm">
+        {tec.name}
+      </h4>
+    </div>
+  )
+
+  const tripled = [...allTechnologies, ...allTechnologies, ...allTechnologies]
 
   return (
     <section id="skills" className="py-24 scroll-mt-28">
@@ -53,97 +41,39 @@ export default function SkillsSection() {
           watermark="SKILLS"
         />
 
-        {/* Único contenedor que alberga el carrusel en loop de todas las tecnologías */}
         <FadeIn delay={0.2}>
-          <div className="relative rounded-3xl bg-carbon-claro/80 border border-white/[0.08] p-6 sm:p-10 shadow-2xl backdrop-blur-md overflow-hidden">
-            
-            {/* Header interno del contenedor */}
-            <div className="flex flex-col sm:flex-row items-center justify-between pb-6 mb-6 border-b border-white/[0.06] gap-4 text-center sm:text-left">
-              <div className="flex items-center gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-celeste animate-ping" />
-                <h3 className="text-lg font-bold font-display text-arena">
-                  Stack Tecnológico Activo
-                </h3>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-mono bg-white/[0.04] text-celeste border border-white/10">
-                  {allTechnologies.length} Tecnologías
-                </span>
-              </div>
+          <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-carbon-claro p-6 sm:p-10">
 
-              <div className="flex items-center gap-4 text-xs font-mono text-arena-muted">
-                <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-celeste" /> Frontend
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-indigo-tech" /> Backend
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-ambar" /> Tools
-                </span>
-              </div>
+            <div className="mb-6 flex items-center gap-3 border-b border-white/[0.06] pb-6">
+              <h3 className="font-display text-lg font-bold text-arena">Stack Tecnológico</h3>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-0.5 font-mono text-xs text-arena-muted">
+                <span className="h-1 w-1 rounded-full bg-celeste" aria-hidden="true" />
+                {allTechnologies.length} Tecnologías
+              </span>
             </div>
 
-            {/* Máscaras de desvanecimiento lateral */}
-            <div className="pointer-events-none absolute left-0 top-20 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-carbon-claro via-carbon-claro/80 to-transparent z-10" />
-            <div className="pointer-events-none absolute right-0 top-20 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-carbon-claro via-carbon-claro/80 to-transparent z-10" />
+            {/* Fade masks */}
+            <div className="pointer-events-none absolute left-0 top-20 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-carbon-claro to-transparent z-10" />
+            <div className="pointer-events-none absolute right-0 top-20 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-carbon-claro to-transparent z-10" />
 
-            {/* Pista 1: Desplazamiento continuo hacia la izquierda */}
+            {/* Single continuous row */}
             <div className="py-2">
               <Swiper
                 modules={[Autoplay, FreeMode]}
                 loop={true}
-                freeMode={true}
-                speed={4000}
-                autoplay={{
-                  delay: 0,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
+                freeMode={{ enabled: true, momentum: false }}
+                speed={6000}
+                autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
                 slidesPerView="auto"
-                spaceBetween={18}
+                spaceBetween={16}
                 className="w-full"
               >
-                {[...row1, ...row1].map((tec, i) => (
-                  <SwiperSlide key={`row1-${tec.name}-${i}`} className="!w-auto">
-                    {renderTechCard(tec)}
+                {tripled.map((tec, i) => (
+                  <SwiperSlide key={`tech-${tec.name}-${i}`} className="!w-auto">
+                    <TechCard tec={tec} />
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
-
-            {/* Pista 2: Desplazamiento continuo hacia la derecha */}
-            <div className="py-2 mt-2">
-              <Swiper
-                modules={[Autoplay, FreeMode]}
-                loop={true}
-                freeMode={true}
-                speed={4500}
-                autoplay={{
-                  delay: 0,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                  reverseDirection: true,
-                }}
-                slidesPerView="auto"
-                spaceBetween={18}
-                className="w-full"
-              >
-                {[...row2, ...row2].map((tec, i) => (
-                  <SwiperSlide key={`row2-${tec.name}-${i}`} className="!w-auto">
-                    {renderTechCard(tec)}
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-
-            {/* Footer interno con detalle de interacción */}
-            <div className="mt-6 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-arena-muted gap-2">
-              <span className="flex items-center gap-1.5">
-                <i className="bi bi-arrow-left-right text-celeste"></i>
-                Carrusel automático continuo • Pasa el cursor para pausar
-              </span>
-              <span className="text-arena-muted/80">
-                React • Tailwind • PHP • Laravel • MySQL • Git • Spring Boot
-              </span>
             </div>
 
           </div>

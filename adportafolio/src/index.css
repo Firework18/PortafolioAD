@@ -83,6 +83,8 @@
 
 @layer base {
   html {
+    /* Native anchors stay smooth; the JS navigation temporarily overrides
+       this while it drives the scroll frame by frame. */
     scroll-behavior: smooth;
   }
 
@@ -104,6 +106,11 @@
     font-weight: 500;
     letter-spacing: -0.005em;
     line-height: 1.15;
+  }
+
+  /* GPU layer for fixed elements */
+  .fixed {
+    will-change: transform;
   }
 }
 
@@ -229,6 +236,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .aurora-text-anim {
     animation: none;
   }

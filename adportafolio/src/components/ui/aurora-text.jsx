@@ -14,7 +14,7 @@ export const AuroraText = memo(
       backgroundClip: "text",
       WebkitTextFillColor: "transparent",
       animationDuration: `${12 / speed}s`,
-      filter: "drop-shadow(0 0 12px rgba(34, 211, 238, 0.35))",
+      filter: "drop-shadow(0 0 10px rgba(34, 211, 238, 0.16))",
     };
 
     return (

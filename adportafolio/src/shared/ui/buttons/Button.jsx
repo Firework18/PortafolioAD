@@ -1,19 +1,26 @@
 import React from 'react'
 
 const VARIANTS = {
-  primary: 'bg-celeste text-carbon font-bold hover:bg-celeste/90 border border-celeste shadow-[0_0_16px_rgba(34,211,238,0.25)] hover:shadow-[0_0_24px_rgba(34,211,238,0.45)]',
-  secondary: 'bg-indigo-tech text-white font-bold hover:bg-indigo-tech/90 border border-indigo-tech/80 shadow-[0_0_16px_rgba(99,102,241,0.25)] hover:shadow-[0_0_24px_rgba(99,102,241,0.45)]',
-  accent: 'bg-ambar text-carbon font-bold hover:bg-ambar/90 border border-ambar/80 shadow-[0_0_16px_rgba(245,158,11,0.25)] hover:shadow-[0_0_24px_rgba(245,158,11,0.45)]',
-  coral: 'bg-coral text-white font-bold hover:bg-coral/90 border border-coral/80 shadow-[0_0_16px_rgba(251,113,133,0.25)] hover:shadow-[0_0_24px_rgba(251,113,133,0.45)]',
-  outline: 'bg-transparent text-celeste border border-celeste/40 hover:bg-celeste/10 hover:border-celeste shadow-[0_0_10px_rgba(34,211,238,0.1)]',
-  ghost: 'bg-transparent text-arena border border-transparent hover:bg-white/5 hover:text-celeste',
-  cyber: 'bg-carbon-medio text-celeste border border-celeste/50 hover:border-celeste hover:bg-celeste/10 hover:shadow-[0_0_18px_rgba(34,211,238,0.3)] [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)]'
+  primary:
+    'bg-celeste text-carbon font-semibold border border-celeste/80 hover:bg-[#67e8f9] hover:border-[#67e8f9]',
+  secondary:
+    'bg-white/[0.06] text-arena font-semibold border border-white/10 hover:bg-white/[0.1] hover:border-white/20',
+  accent:
+    'bg-ambar/10 text-ambar border border-ambar/30 hover:bg-ambar/15 hover:border-ambar/50',
+  coral:
+    'bg-coral/10 text-coral border border-coral/30 hover:bg-coral/15 hover:border-coral/50',
+  outline:
+    'bg-transparent text-arena border border-white/15 hover:bg-white/[0.04] hover:border-white/30',
+  ghost:
+    'bg-transparent text-arena-muted border border-transparent hover:bg-white/[0.05] hover:text-arena',
+  cyber:
+    'bg-carbon-medio text-arena border border-white/15 hover:border-celeste/40 hover:bg-white/[0.04] hover:text-celeste [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)]',
 }
 
 const SIZES = {
   sm: 'px-3.5 py-1.5 text-xs',
   md: 'px-5 py-2.5 text-sm',
-  lg: 'px-7 py-3.5 text-base'
+  lg: 'px-7 py-3.5 text-base',
 }
 
 export function Button({
@@ -29,7 +36,8 @@ export function Button({
   type = 'button',
   ...props
 }) {
-  const baseClasses = 'inline-flex items-center justify-center gap-2 font-display uppercase tracking-wider rounded-lg transition-all duration-200 cursor-pointer select-none active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none'
+  const baseClasses =
+    'inline-flex items-center justify-center gap-2 rounded-lg font-display uppercase tracking-wider transition-colors duration-200 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-celeste/60 focus-visible:ring-offset-2 focus-visible:ring-offset-carbon active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none'
   const variantClass = VARIANTS[variant] || VARIANTS.primary
   const sizeClass = SIZES[size] || SIZES.md
   const widthClass = fullWidth ? 'w-full' : ''
@@ -64,7 +72,7 @@ export function IconButton({ icon, size = 'md', className = '', ...props }) {
   const iconSizes = {
     sm: 'p-2 text-sm',
     md: 'p-2.5 text-base',
-    lg: 'p-3 text-lg'
+    lg: 'p-3 text-lg',
   }
 
   return (

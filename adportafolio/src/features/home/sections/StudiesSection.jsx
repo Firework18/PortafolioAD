@@ -2,12 +2,48 @@ import React from 'react'
 import { studiesData } from '../../../data/StudiesData'
 import SectionHeader from '../../../shared/ui/section/SectionHeader'
 import FadeIn from '../../../shared/ui/motion/FadeIn'
-import Card from '../../../shared/ui/card/Card'
+
+function StudyCard({ item }) {
+  return (
+    <div className="max-w-sm rounded-xl border border-white/[0.08] bg-carbon-claro/90 p-5 sm:p-6">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <span className="flex items-center gap-1.5 font-mono text-xs text-arena-muted">
+          <i className="bi bi-calendar3 text-celeste" aria-hidden="true" />
+          {item.period}
+        </span>
+        <span className="rounded-full border border-esmeralda/20 bg-white/[0.03] px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider text-esmeralda">
+          {item.status}
+        </span>
+      </div>
+
+      <h3 className="font-display text-lg font-bold leading-snug text-arena">
+        {item.degree}
+      </h3>
+
+      <p className="mt-1 flex items-center gap-1.5 font-sans text-sm text-arena-muted">
+        <i className="bi bi-building" aria-hidden="true" />
+        {item.institution}
+      </p>
+
+      <p className="mt-3 font-sans text-sm leading-relaxed text-arena-muted">
+        {item.description}
+      </p>
+    </div>
+  )
+}
+
+function TimelineNode({ icon }) {
+  return (
+    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-carbon-claro text-lg text-arena-muted">
+      <i className={icon} aria-hidden="true" />
+    </div>
+  )
+}
 
 export default function StudiesSection() {
   return (
-    <section id="studies" className="py-24 scroll-mt-28">
-      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+    <section id="studies" className="scroll-mt-28 py-24">
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           tag="02 • Trayectoria Académica"
           title="Mi Formación y"
@@ -16,49 +52,47 @@ export default function StudiesSection() {
           watermark="ESTUDIOS"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {studiesData.map((item, index) => (
-            <FadeIn key={item.id} delay={index * 0.15}>
-              <Card className="p-7 sm:p-8 flex flex-col justify-between h-full group">
-                <div>
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="p-3.5 rounded-xl bg-white/[0.04] text-celeste text-2xl border border-white/10 group-hover:scale-110 transition-transform duration-300">
-                      <i className={item.icon}></i>
-                    </div>
-                    <span className="px-3 py-1 text-xs font-mono uppercase tracking-wider rounded-full bg-white/[0.04] text-esmeralda border border-esmeralda/20">
-                      {item.status}
-                    </span>
-                  </div>
+        <FadeIn delay={0.15}>
+          <ul className="timeline timeline-vertical timeline-snap-icon max-md:timeline-compact">
+            {studiesData.map((item, index) => {
+              const isLeft = index % 2 === 0
 
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-arena mt-5 group-hover:text-celeste transition-colors">
-                    {item.degree}
-                  </h3>
+              return (
+                <li key={item.id}>
+                  {index > 0 && <hr className="bg-white/10" />}
 
-                  <div className="flex flex-wrap items-center gap-3 mt-2">
-                    <p className="text-arena-muted font-medium text-sm font-sans flex items-center gap-1.5">
-                      <i className="bi bi-building text-celeste"></i>
-                      {item.institution}
-                    </p>
-                    <span className="text-white/20">•</span>
-                    <p className="text-xs text-arena-muted font-mono flex items-center gap-1.5">
-                      <i className="bi bi-calendar3"></i>
-                      {item.period}
-                    </p>
-                  </div>
+                  {isLeft ? (
+                    <>
+                      <div className="timeline-start">
+                        <StudyCard item={item} />
+                      </div>
 
-                  <p className="text-arena-muted text-sm sm:text-base mt-4 leading-relaxed font-sans">
-                    {item.description}
-                  </p>
-                </div>
+                      <div className="timeline-middle">
+                        <TimelineNode icon={item.icon} />
+                      </div>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-arena-muted font-mono">
-                  <span>Especialidad de Software</span>
-                  <span className="text-indigo-tech font-semibold">Tecnología & Sistemas</span>
-                </div>
-              </Card>
-            </FadeIn>
-          ))}
-        </div>
+                      <div className="timeline-end timeline-box pointer-events-none opacity-0" />
+                    </>
+                  ) : (
+                    <>
+                      <div className="timeline-start timeline-box pointer-events-none opacity-0" />
+
+                      <div className="timeline-middle">
+                        <TimelineNode icon={item.icon} />
+                      </div>
+
+                      <div className="timeline-end">
+                        <StudyCard item={item} />
+                      </div>
+                    </>
+                  )}
+
+                  {index < studiesData.length - 1 && <hr className="bg-white/10" />}
+                </li>
+              )
+            })}
+          </ul>
+        </FadeIn>
       </div>
     </section>
   )

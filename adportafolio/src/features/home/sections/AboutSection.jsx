@@ -1,8 +1,8 @@
-import React from "react";
-import Card3dHover from "../../../shared/ui/card3d/Card3dAbout";
-import { aboutData } from "../../../data/AboutData";
-import SectionHeader from "../../../shared/ui/section/SectionHeader";
-import FadeIn from "../../../shared/ui/motion/FadeIn";
+import React from 'react'
+import { aboutData } from '../../../data/AboutData'
+import SectionHeader from '../../../shared/ui/section/SectionHeader'
+import FadeIn from '../../../shared/ui/motion/FadeIn'
+import Card from '../../../shared/ui/card/Card'
 
 export default function AboutSection() {
   return (
@@ -16,19 +16,24 @@ export default function AboutSection() {
           watermark="ABOUT"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {aboutData.map((data, index) => (
-            <FadeIn key={data.id} delay={index * 0.15} className="h-full flex">
-              <Card3dHover
-                title={data.title}
-                body={data.body}
-                color={data.color}
-                icon={data.icon}
-              />
+            <FadeIn key={data.id ?? index} delay={index * 0.12}>
+              <Card className="group flex h-full flex-col items-center gap-4 p-7 text-center">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-2xl text-arena-muted transition-colors duration-200 group-hover:border-celeste/25 group-hover:text-celeste">
+                  {data.icon && <i className={data.icon} />}
+                </div>
+                <h3 className="text-base font-bold font-display text-arena">
+                  {data.title}
+                </h3>
+                <p className="text-sm text-arena-muted leading-relaxed font-sans">
+                  {data.body}
+                </p>
+              </Card>
             </FadeIn>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

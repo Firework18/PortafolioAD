@@ -16,9 +16,10 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 pointer-events-auto">
         <SingularityHorizon
           height="100%"
-          particles={4000}
+          particles={3500}
           hud={false}
           interactive={true}
+          interval={25000}
           className="opacity-75"
         />
         {/* Viñeta para legibilidad y transición suave a las demás secciones */}
@@ -31,12 +32,12 @@ export default function HeroSection() {
         
         {/* Status Pill */}
         <FadeIn delay={0.1}>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest bg-carbon-claro/80 border border-white/10 text-celeste shadow-[0_0_20px_rgba(34,211,238,0.15)] backdrop-blur-md">
-            <img src={logoA} alt="Logo" className="w-4 h-4 object-contain filter invert opacity-90" />
-            <span className="text-arena font-semibold">Alessandro Del Carpio</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-carbon-claro/90 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-arena-muted">
+            <img src={logoA} alt="Logo" className="h-4 w-4 object-contain filter invert opacity-90" />
+            <span className="font-semibold text-arena">Alessandro Del Carpio</span>
             <span className="text-white/20">•</span>
             <span className="inline-flex items-center gap-1.5 text-esmeralda font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-esmeralda animate-ping" />
+              <span className="w-1.5 h-1.5 rounded-full bg-esmeralda" />
               Disponible
             </span>
           </div>
@@ -46,7 +47,7 @@ export default function HeroSection() {
         <FadeIn delay={0.2} className="mt-6 max-w-4xl">
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-bold leading-[1.08] tracking-tight text-arena">
             Desarrollando soluciones{' '}
-            <AuroraText colors={['#22d3ee', '#818cf8', '#fb7185', '#22d3ee']}>
+            <AuroraText colors={['#67e8f9', '#22d3ee', '#a5f3fc', '#22d3ee']}>
               en proyectos de software
             </AuroraText>
           </h1>
@@ -54,23 +55,22 @@ export default function HeroSection() {
 
         {/* Roles */}
         <FadeIn delay={0.3} className="mt-6 flex flex-wrap justify-center gap-2.5">
-          <span className="px-3 py-1 text-xs font-mono uppercase tracking-wider rounded-md bg-white/[0.04] text-celeste border border-white/10">
+          <span className="rounded-md border border-white/10 bg-carbon/60 px-3 py-1 font-mono text-xs uppercase tracking-wider text-arena">
             Full Stack Developer
           </span>
-          <span className="px-3 py-1 text-xs font-mono uppercase tracking-wider rounded-md bg-white/[0.04] text-indigo-tech border border-white/10">
+          <span className="rounded-md border border-white/10 bg-carbon/60 px-3 py-1 font-mono text-xs uppercase tracking-wider text-arena">
             Ingeniería de Sistemas
           </span>
-          <span className="px-3 py-1 text-xs font-mono uppercase tracking-wider rounded-md bg-white/[0.04] text-ambar border border-white/10">
+          <span className="rounded-md border border-white/10 bg-carbon/60 px-3 py-1 font-mono text-xs uppercase tracking-wider text-arena">
             Arquitectura Web & APIs
           </span>
         </FadeIn>
 
         {/* Descripción limpia */}
         <FadeIn delay={0.4} className="mt-6 max-w-2xl">
-          <p className="text-base sm:text-lg text-arena-muted leading-relaxed font-sans">
-            Enfocado en resolver problemas reales a través de software moderno y escalable.
-            Transformo requerimientos en interfaces reactivas y sistemas de backend intuitivos,
-            robustos y pensados para crecer.
+          <p className="text-base sm:text-lg leading-relaxed font-sans">
+            <span className="text-arena font-medium">Enfocado en resolver problemas reales</span>
+            <span className="text-arena-muted"> a través de software moderno y escalable. Transformo requerimientos en interfaces reactivas y sistemas de backend intuitivos, robustos y pensados para crecer.</span>
           </p>
         </FadeIn>
 
@@ -80,7 +80,7 @@ export default function HeroSection() {
             <ShimmerButton
               shimmerColor="#22d3ee"
               background="rgba(18, 24, 36, 0.9)"
-              className="font-display uppercase tracking-wider text-xs sm:text-sm font-semibold border-white/15 hover:border-celeste/40 shadow-xl"
+              className="border-white/15 font-display text-xs font-semibold uppercase tracking-wider hover:border-white/25 sm:text-sm"
             >
               <i className="bi bi-download mr-2"></i> Descargar CV
             </ShimmerButton>
@@ -100,7 +100,7 @@ export default function HeroSection() {
               href="https://github.com/Firework18/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-celeste transition-colors p-2"
+              className="p-2 transition-colors hover:text-arena"
               aria-label="GitHub"
             >
               <i className="bi bi-github"></i>
@@ -109,18 +109,12 @@ export default function HeroSection() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-indigo-tech transition-colors p-2"
+              className="p-2 transition-colors hover:text-arena"
               aria-label="LinkedIn"
             >
               <i className="bi bi-linkedin"></i>
             </a>
           </div>
-        </FadeIn>
-
-        {/* Indicador sutil de interacción y scroll */}
-        <FadeIn delay={0.6} className="mt-12 text-xs font-mono text-arena-muted/60 flex items-center gap-2 select-none">
-          <i className="bi bi-arrows-move text-celeste"></i>
-          <span>Arrastra para orbitar el horizonte de eventos</span>
         </FadeIn>
 
       </div>
